@@ -1,0 +1,135 @@
+:root {
+    --grey-variant: #bbb;
+    --grey-variant-dark: #717171;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.mySlides {
+    display: none;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.dots {
+    position: relative;
+    top: -40px;
+    text-align: center;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: var(--grey-variant);
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.active {
+    background-color: var(--grey-variant-dark);
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 3s;
+}
+
+.fade img {
+    height: 500px;
+    width: 100%;
+}
+
+.m-big {
+    margin: 0 26rem;
+}
+
+@media (max-width: 1199.98px) {
+    .fade img {
+        height: 450px;
+    }
+    .m-big {
+        margin: 0 20rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .fade img {
+        height: 400px;
+    }
+    .m-big {
+        margin: 0 12rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .fade img {
+        height: 350px;
+    }
+    .m-big {
+        margin: 0 6rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .fade img {
+        height: 300px;
+    }
+    .m-big {
+        margin: 0 3rem;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.bg-orange {
+    background: linear-gradient(-45deg, #ffc71b, #ff7f00, #ff0000);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.sticky-top {
+    background-color: #ffffff;
+}
+
+input[type="checkbox"]:checked {
+    background-color: red;
+}
