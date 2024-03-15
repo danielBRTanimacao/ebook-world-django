@@ -3,26 +3,30 @@
 {% block content %}
 
 <main class="pt-5">
-    <form class="shadow-lg p-4 rounded m-big" action="#">
+    <form class="shadow-lg p-4 rounded m-big" action="{% url 'cadastro' %}" method="POST">
         <div>
-            <h2 class="display-6">Entre na sua conta</h2>
+            <h2 class="display-6">Crie sua conta</h2>
         </div>
         <div class="mb-3">
             <label class="form-label" for="nameInput">Nome de usuario</label>
             <input class="form-control" type="text" name="nameInput" id="nameInput" aria-describedby="nameHelp">
         </div>
         <div class="mb-3">
-            <label class="form-label" for="passwordInput">Senha</label>
+            <label class="form-label" for="emailInput">Email</label>
+            <input class="form-control" type="email" name="emailInput" id="emailInput" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="passwordInput">Crie uma senha</label>
             <input class="form-control" type="password" name="passwordInput" id="passwordInput" aria-describedby="passwordHelp">
         </div>
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="passwordShow" onclick="showPass()">
             <label class="form-check-label" for="passwordShow">Mostrar senha</label>
         </div>
-        <button type="submit" class="btn btn-danger form-control">Entrar</button>
+        <button type="submit" class="btn btn-danger form-control">Criar</button>
         <p>
-            Não possui uma conta?
-            <a href="/cadastro">Cadastre-se</a>
+            ja tem uma conta?
+            <a href="/login">Fazer login</a>
         </p>
     </form>
 </main>
