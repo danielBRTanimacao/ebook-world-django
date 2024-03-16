@@ -3,7 +3,7 @@
 {% block content %}
 
 <main class="pt-5">
-    <form class="shadow-lg p-4 rounded m-big" action="#">
+    <form class="shadow-lg p-4 rounded m-big" action=" {% url "home:login" %}" method="POST"> {% csrf_token %}
         <div>
             <h2 class="display-6">Entre na sua conta</h2>
         </div>
