@@ -8,3 +8,6 @@ def login(request):
 
 def cadastro(request):
     return render(request, 'home/cadastro.html')
+
+def user(request):
+    return render(request, 'home/user.html')
