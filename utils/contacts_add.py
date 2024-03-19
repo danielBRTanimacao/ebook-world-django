@@ -2,7 +2,6 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
-from random import choice
 
 import django
 from django.conf import settings
