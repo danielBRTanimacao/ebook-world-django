@@ -1,13 +1,29 @@
 {% extends "global/base.html" %}
 
 {% block content %}
-    <main>
-        <header>
-            <div>
-                <img src="" alt="img">
-            </div>
-            username
+    <main class="container pt-4">
+        <header class="navbar navbar-expand-lg">
+            <nav class="container-fluid">
+                <img 
+                    class="img-fluid rounded" 
+                    src="https://img.skoob.com.br/TxNgSdXjOvmgBpxEi6v_-QT-Dg8=/170x170/center/top/smart/filters:format(jpeg)/https://skoob.s3.amazonaws.com/usuarios/9994059/9994059SK-V11691708001G.jpg" 
+                    alt="img-person" >
+                <h3 class="display-6">
+                    {{ home.username }}
+                </h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            Livros
+                        </li>
+                        <li>Total de paginas</li>
+                    </ul>
+                </div>
+            </nav>
         </header>
-            
     </main>
 {% endblock content %}
