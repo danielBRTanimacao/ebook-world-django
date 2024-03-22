@@ -19,3 +19,6 @@ def user(request, url_id):
     }
 
     return render(request, 'home/user.html', context)
+
+def search_page(request):
+    return render(request, 'home/search.html')
