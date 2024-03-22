@@ -63,6 +63,10 @@
     margin: 0 26rem;
 }
 
+.ptq-5 {
+    padding-top: 2rem;
+}
+
 @media (max-width: 1199.98px) {
     .fade img {
         height: 450px;
@@ -79,6 +83,9 @@
     .m-big {
         margin: 0 12rem;
     }
+    .ptq-5 {
+        padding-top: 0;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -87,6 +94,9 @@
     }
     .m-big {
         margin: 0 6rem;
+    }
+    .person-icon {
+        width: 85px;
     }
 }
 

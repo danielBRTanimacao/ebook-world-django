@@ -2,48 +2,7 @@
 {% load static %}
 {% block content %}
 
-<header class="sticky-top shadow-lg">
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand fs-1 fw-bold">Ebook<span class="text-danger">World</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-                <form class="input-group" role="search">
-                    <input class="form-control" type="search" name="search-book" placeholder="Procure por um livro...">
-                    <button class="btn btn-outline-secondary" type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </form>
-                
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-envelope fs-2"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-person-add fs-2"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person-circle fs-2"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="/login">Entrar</a></li>
-                            <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" href="#">Sair</a></li>
-                          </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+{% include "global/partials/header.html" %}
 
 <aside class="bg-orange pt-4">
     <div class="slideshow-container">
