@@ -143,3 +143,8 @@
 input[type="checkbox"]:checked {
     background-color: red;
 }
+
+.btn2 {
+    border: none;
+    background-color: #ffffff;
+}

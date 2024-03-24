@@ -3,12 +3,22 @@
 {% block content %}
 {% include "global/partials/header.html" %}
 
-    <h1>Hello</h1>
-    <div>
-        livros
-        <div id="booksvisual">
+    <main class="container pt-3">
+        <h1>
+            <button class="btn2">
+                <i class="bi bi-search"></i>
+            </button>
+            Procurando livros relacionados a...
+            <span id="bookValue">
+                {{ query }}
+            </span>
+        </h1>
+        <section>
+            <div id="showBooksFetch">
+                Carregando livros...
+            </div>
+        </section>
+    </main>
 
-        </div>
-    </div>
-    <script src="{% static "global/js/index.js" %}"></script>
+<script src="{% static "home/js/search.js" %}"></script>
 {% endblock content %}

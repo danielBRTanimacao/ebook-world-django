@@ -21,4 +21,8 @@ def user(request, url_id):
     return render(request, 'home/user.html', context)
 
 def search_page(request):
-    return render(request, 'home/search.html')
+    search_query = request.GET.get('q')
+    context = {
+        'query': search_query,
+    }
+    return render(request, 'home/search.html', context)
