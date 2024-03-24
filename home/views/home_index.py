@@ -26,3 +26,7 @@ def search_page(request):
         'query': search_query,
     }
     return render(request, 'home/search.html', context)
+
+def specific_book(request, id_book):
+    
+    return render(request, 'home/specific_book.html')

@@ -7,21 +7,15 @@ fetch(apiGetEndpoint)
     .then((data) => {
         console.log(data);
         const show = document.querySelector("div#showBooksFetch");
-        let array = 1000;
+        show.innerHTML = "";
+        let array = data.items.length;
         for (let index = 0; index < array; index++) {
             show.innerHTML += `
-            <div class="col-sm-3 text-center bg-light pt-3 my-2 mx-3 rounded">
-                <img width="90" class="img-fluid" src="${data.items[index].volumeInfo.imageLinks.thumbnail}" alt="img">
+            <a href="/${index}/book/" class="col-sm-3 text-center bg-light pt-3 my-2 mx-3 rounded text-dark text-decoration-none">
+                <img class="img-fluid" src="${data.items[index].volumeInfo.imageLinks.thumbnail}" alt="img">
                 <p class="lead">
                     ${data.items[index].volumeInfo.title}
                 </p>
-            </div>`;
+            </a>`;
         }
-        // show.innerHTML = `
-        //     <div class="col-md-2 text-center bg-light pt-3 rounded">
-        //         <img class="img-fluid" src="${data.items[0].volumeInfo.imageLinks.thumbnail}" alt="img">
-        //         <p class="fs-5">
-        //             ${data.items[0].volumeInfo.title}
-        //         </p>
-        //     </div>`;
     });
