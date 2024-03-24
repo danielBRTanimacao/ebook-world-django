@@ -1,12 +1,13 @@
 const nameBook = document.querySelector("span#bookValue").outerText;
-const apiKey = "AIzaSyCsk64sineil4IZ_Mj80b0cMxPOm0T-r7w";
 const apiGetEndpoint =
     "https://www.googleapis.com/books/v1/volumes?q=" +
     nameBook +
-    "&key=" +
-    apiKey;
+    "&key=AIzaSyCsk64sineil4IZ_Mj80b0cMxPOm0T-r7w";
+
 fetch(apiGetEndpoint)
     .then((response) => {
+        console.log(response);
+        console.log(response.json());
         response.json();
     })
     .then((data) => {
@@ -14,5 +15,3 @@ fetch(apiGetEndpoint)
         const show = document.querySelector("div#showBooksFetch");
         show.innerHTML = data;
     });
-
-console.log(apiGetEndpoint);
