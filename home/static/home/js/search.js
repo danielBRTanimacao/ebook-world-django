@@ -1,5 +1,6 @@
 const nameBook = document.querySelector("span#bookValue").outerText;
-const apiGetEndpoint = `https://www.googleapis.com/books/v1/volumes?q=${nameBook}&key=AIzaSyCsk64sineil4IZ_Mj80b0cMxPOm0T-r7w`;
+const key = "AIzaSyCsk64sineil4IZ_Mj80b0cMxPOm0T-r7w";
+const apiGetEndpoint = `https://www.googleapis.com/books/v1/volumes?q=${nameBook}&key=${key}`;
 
 fetch(apiGetEndpoint)
     .then((response) => response.json())
