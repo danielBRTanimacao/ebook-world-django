@@ -32,6 +32,8 @@ def specific_book(request, id_book):
         def __init__(self) -> None:
             self.id = id_book
             self.name = "nome"
+            self.img_book = "img"
+            self.description = "description"
         
     context = {
         "book_id": Book,
