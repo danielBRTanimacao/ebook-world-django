@@ -28,5 +28,12 @@ def search_page(request):
     return render(request, 'home/search.html', context)
 
 def specific_book(request, id_book):
-    
-    return render(request, 'home/specific_book.html')
+    class Book:
+        def __init__(self) -> None:
+            self.id = id_book
+            self.name = "nome"
+        
+    context = {
+        "book_id": Book,
+    }
+    return render(request, 'home/specific_book.html', context)
