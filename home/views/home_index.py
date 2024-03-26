@@ -45,6 +45,6 @@ def specific_book(request, id_book):
 
     context = {
         "book_id": search_book,
-        'site_title': f"{search_book.name} - "
+        'site_title': "name - "
     }
     return render(request, 'home/specific_book.html', context)
