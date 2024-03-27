@@ -7,7 +7,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <form class="input-group" role="search" action="{% url "home:search" %}" method="get">
-                    <input class="form-control" type="search" name="q" placeholder="Procure por um livro..." id="bookSearch">
+                    <input 
+                        class="form-control" 
+                        type="search" 
+                        name="q" 
+                        placeholder="Procure por um livro..." 
+                        id="bookSearch"
+                        autofocus
+                        required
+                    >
                     <button class="btn btn-outline-secondary" type="submit">
                         <i class="bi bi-search"></i>
                     </button>

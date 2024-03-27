@@ -12,3 +12,4 @@ class Home(models.Model):
 
     def __str__(self) -> str:
         return self.username
+    

@@ -34,17 +34,8 @@ def search_page(request):
     return render(request, 'home/search.html', context)
 
 def specific_book(request, id_book):
-    class Book:
-        def __init__(self) -> None:
-            self.id = id_book
-            self.name = "nome"
-            self.img_book = "img"
-            self.description = "description"
-    
-    search_book = Book()
-
     context = {
-        "book_id": search_book,
+        "book_id": id_book,
         'site_title': "name - "
     }
     return render(request, 'home/specific_book.html', context)
