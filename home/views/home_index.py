@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render, get_object_or_404, redirect
 
 from home.models import Home
@@ -26,12 +27,14 @@ def user(request, url_id):
     return render(request, 'home/user.html', context)
 
 def search_page(request):
+    API_KEY_BOOK = os.getenv('API_BOOK_KEY')
     search_query = request.GET.get('q', '').strip()
     if search_page == '':
         return redirect('home:index')
     context = {
         'query': search_query,
         'site_title': f"{search_query} - ",
+        'api_key': API_KEY_BOOK,
     }
     return render(request, 'home/search.html', context)
 
