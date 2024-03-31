@@ -1,5 +1,5 @@
 const nameBook = document.querySelector("span#bookValue").outerText;
-const key = "AIzaSyCsk64sineil4IZ_Mj80b0cMxPOm0T-r7w";
+const key = response.API_BOOK_KEY;
 const apiGetEndpoint = `https://www.googleapis.com/books/v1/volumes?q=${nameBook}&key=${key}`;
 const erroImg =
     "https://i.pinimg.com/564x/a2/9f/64/a29f6458abfb132920fb8a99d8b60f85.jpg";
