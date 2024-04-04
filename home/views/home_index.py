@@ -16,7 +16,7 @@ def cadastro(request):
     context = {
         'site_title': "Registrar - "
     }
-    return render(request, 'home/cadastro.html', context)
+    return render(request, 'home/create.html', context)
 
 def user(request, url_id):
     user_single = get_object_or_404(Home, pk=url_id)
