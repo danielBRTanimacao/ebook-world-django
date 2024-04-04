@@ -8,7 +8,7 @@ urlpatterns = [
     path('search/', views.search_page, name='search'),
 
     #CRUD
-    path('home/cadastro/', views.cadastro, name='cadastro'),
+    path('home/cadastro/create/', views.cadastro, name='cadastro'),
     path('home/login/', views.login, name='login'),
     path('home/<int:url_id>/detail/', views.user, name='user'),
 ]
