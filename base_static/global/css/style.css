@@ -67,48 +67,6 @@
     padding-top: 2rem;
 }
 
-@media (max-width: 1199.98px) {
-    .fade img {
-        height: 450px;
-    }
-    .m-big {
-        margin: 0 20rem;
-    }
-}
-
-@media (max-width: 991.98px) {
-    .fade img {
-        height: 400px;
-    }
-    .m-big {
-        margin: 0 12rem;
-    }
-    .ptq-5 {
-        padding-top: 0;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .fade img {
-        height: 350px;
-    }
-    .m-big {
-        margin: 0 6rem;
-    }
-    .person-icon {
-        width: 85px;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .fade img {
-        height: 300px;
-    }
-    .m-big {
-        margin: 0 3rem;
-    }
-}
-
 @keyframes fade {
     from {
         opacity: 0.4;
@@ -156,4 +114,49 @@ input[type="checkbox"]:checked {
     border-bottom: 20px solid #dc6b19;
     border-radius: 5px;
     top: -40px;
+}
+
+@media (max-width: 1199.98px) {
+    .fade img {
+        height: 450px;
+    }
+    .m-big {
+        margin: 0 20rem;
+    }
+    .not-visible {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .fade img {
+        height: 400px;
+    }
+    .m-big {
+        margin: 0 12rem;
+    }
+    .ptq-5 {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .fade img {
+        height: 350px;
+    }
+    .m-big {
+        margin: 0 6rem;
+    }
+    .person-icon {
+        width: 85px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .fade img {
+        height: 300px;
+    }
+    .m-big {
+        margin: 0 3rem;
+    }
 }
