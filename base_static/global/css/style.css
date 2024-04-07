@@ -38,15 +38,15 @@
 .dot {
     height: 15px;
     width: 15px;
-    margin: 0 2px;
-    background-color: var(--grey-variant);
+    margin: 0 0.5px;
+    border: 2px solid #fff;
     border-radius: 50%;
     display: inline-block;
     transition: all 0.3s ease;
 }
 
 .active {
-    background-color: var(--grey-variant-dark);
+    background-color: #fff;
 }
 
 .fade {
