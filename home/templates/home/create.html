@@ -3,7 +3,12 @@
 {% block content %}
 
 <main class="pt-5">
-    <form action="{% url 'home:cadastro' %}" method="POST" class="shadow-lg p-4 rounded m-big"> {% csrf_token %}
+    <form 
+        action="{% url 'home:cadastro' %}" 
+        method="POST" 
+        class="shadow-lg p-4 rounded m-big"
+        enctype="multipart/form-data"
+        > {% csrf_token %}
         <div>
             <h2 class="display-6">Crie sua conta</h2>
         </div>
@@ -26,7 +31,7 @@
         <button type="submit" class="btn btn-danger form-control">Criar</button>
         <p>
             ja tem uma conta?
-            <a href="{% url "home:login" %}">Fazer login</a>
+            <a href="#">Fazer login</a>
         </p>
     </form>
 </main>
