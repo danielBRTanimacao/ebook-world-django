@@ -8,26 +8,33 @@
         method="POST" 
         class="shadow-lg p-4 rounded m-big"
         enctype="multipart/form-data"
-        > {% csrf_token %}
+        > 
+        {% csrf_token %}
         <div>
             <h2 class="display-6">Crie sua conta</h2>
         </div>
-        <div class="mb-3">
+        {% for field in form %}
+            <div class="mb-3 form-to-control">
+                <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
+        {% comment %} <div class="mb-3">
             <label class="form-label" for="nameInput">Nome de usuario</label>
-            <input class="form-control" type="text" name="nameInput" id="nameInput" aria-describedby="nameHelp">
+            <input class="form-control" type="text" name="nameUser" id="nameInput" aria-describedby="nameHelp">
         </div>
         <div class="mb-3">
             <label class="form-label" for="emailInput">Email</label>
-            <input class="form-control" type="email" name="emailInput" id="emailInput" aria-describedby="emailHelp">
+            <input class="form-control" type="email" name="emailUser" id="emailInput" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label class="form-label" for="passwordInput">Crie uma senha</label>
-            <input class="form-control" type="password" name="passwordInput" id="passwordInput" aria-describedby="passwordHelp">
+            <input class="form-control" type="password" name="password" id="passwordInput" aria-describedby="passwordHelp">
         </div>
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="passwordShow" onclick="showPass()">
             <label class="form-check-label" for="passwordShow">Mostrar senha</label>
-        </div>
+        </div> {% endcomment %}
         <button type="submit" class="btn btn-danger form-control">Criar</button>
         <p>
             ja tem uma conta?
@@ -45,6 +52,8 @@
             checker.type = 'password'
         }
     }
+    const allInput = document.querySelectorAll("input");
+    allInput.forEach((inpu) => inpu.classList.add("form-control"));
 </script>
 
 {% endblock content %}
