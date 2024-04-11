@@ -116,6 +116,13 @@ input[type="checkbox"]:checked {
     top: -40px;
 }
 
+.errorlist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #ff0000;
+}
+
 @media (max-width: 1199.98px) {
     .fade img {
         height: 450px;
