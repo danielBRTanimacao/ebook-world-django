@@ -18,9 +18,19 @@
                 <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
                 {{ field }}
                 {{ field.errors }}
+                {% if field.help_text %}
+                    <p class="lead fs-6">
+                        {{field.help_text}}
+                    </p>
+                {% endif %}
             </div>
         {% endfor %}
         
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="passwordShow" onclick="showPass()">
+            <label for="passwordShow">Mostrar senha</label>
+        </div>
+
         <button type="submit" class="btn btn-danger form-control">Criar</button>
         <p>
             ja tem uma conta?
@@ -38,8 +48,6 @@
             checker.type = 'password'
         }
     }
-    const allInput = document.querySelectorAll("input");
-    allInput.forEach((inpu) => inpu.classList.add("form-control"));
 </script>
 
 {% endblock content %}
