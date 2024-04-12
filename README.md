@@ -1,4 +1,4 @@
-# Ebook Word - projeto pessoal treino de CRUD, DB, Front
+# Ebook Word - projeto pessoal treino de CRUD, DataBase, Front
 
 Refazendo esse texto
 
