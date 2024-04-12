@@ -123,6 +123,11 @@ input[type="checkbox"]:checked {
     color: #ff0000;
 }
 
+.view-100 {
+    align-items: center;
+    height: 75vh;
+}
+
 @media (max-width: 1199.98px) {
     .fade img {
         height: 450px;

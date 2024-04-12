@@ -43,11 +43,27 @@ class HomeForm(forms.ModelForm):
         )
 
     def clean(self):
-        self.add_error(
-            'username',
-            ValidationError(
-                'Mensagem de Erro teste 1',
-                code='invalid'
+        username = self.cleaned_data.get('username')
+        try:
+            int(username)
+            self.add_error(
+                'username',
+                ValidationError(
+                    'Seu nome não pode conter apenas números!'
+                )
             )
-        )
+        except ValueError:
+            ...
+        
         return super().clean()
+    
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        if len(password) < 8:
+            self.add_error(
+                'password',
+                ValidationError(
+                    'Digite uma senha igual ou com mais de 8 caracteres!'
+                )
+            )
+        return password
