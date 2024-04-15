@@ -1,7 +1,5 @@
 let slideIndex = 0;
 
-showSlides();
-
 function showSlides() {
     let i;
     let slides = document.getElementsByClassName("mySlides");
@@ -20,6 +18,8 @@ function showSlides() {
     dots[slideIndex - 1].className += " active";
     setTimeout(showSlides, 3000);
 }
+
+showSlides();
 
 function onScreenMinus() {
     const text = document.querySelector("div#visible-img");
@@ -66,3 +66,9 @@ function animateImgs(classItem) {
 
 animateImgs("showing");
 animateImgs("upimg");
+
+// function bookRenders() {
+//     const bookToRender = document.querySelector("a#booksRender");
+// }
+
+// bookRenders();

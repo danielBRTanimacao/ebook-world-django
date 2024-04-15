@@ -46,7 +46,7 @@
         </div>
     </section>
     <hr>
-    <section class="row view-100">
+    <section>
         <div>
             <h1 class="display-4 text-danger hidden">
                 Que tipo de livro esta procurando?
@@ -55,13 +55,15 @@
                 Aqui temos todos os tipos!
             </h2>
         </div>
-        <div class="text-center hidden-img">
-            imgs carrosel effect
+        <div class="text-center">
+            <a href="{% url "home:cadastro" %}">
+                <img width="200" class="img-fluid hidden-img py-2" src="https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg" alt="imgs-books">
+            </a>
         </div>
     </section>
 </main>
 
 {% include "global/partials/footer.html" %}
 
-<script src="{% static "home/js/carousel.js" %}"></script>
+<script src="{% static "home/js/index.js" %}"></script>
 {% endblock content %}
