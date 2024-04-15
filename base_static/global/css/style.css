@@ -128,17 +128,27 @@ input[type="checkbox"]:checked {
     height: 75vh;
 }
 
-.hidden {
+.hidden,
+.hidden-img {
     opacity: 0;
     filter: blur(5px);
     transform: translateX(-100%);
     transition: all 1s;
 }
 
-.upItem {
+.hidden-img {
+    transform: translateY(100%);
+}
+
+.showing,
+.upimg {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
+}
+
+.upimg {
+    transform: translateY(0);
 }
 
 @media (max-width: 1199.98px) {
