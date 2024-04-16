@@ -1,12 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from home.forms import HomeForm
 
 def create(request):
     if request.method == 'POST':
+        form = HomeForm(request.POST)
         context = {
             'site_title': "Registrar - ",
-            'form': HomeForm(request.POST),
+            'form': form,
         }
+
+        if form.is_valid():
+            form.save()
+            return redirect('home:cadastro')
+        
         return render(request, 'home/create.html', context)
         
     context = {
