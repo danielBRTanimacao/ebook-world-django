@@ -67,3 +67,58 @@ class HomeForm(forms.ModelForm):
                 )
             )
         return password
+
+class LoginHomeForm(forms.ModelForm):
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                'class':'form-control',
+                'placeholder':'Nome usuario...',
+            }
+        ),
+        label="Seu nome"
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                'class':'form-control',
+                'id':'passwordInput',
+                'placeholder':'Sua senha...',
+            }
+        ),
+        help_text='Digite sua senha',
+        label="Digite uma senha"
+    )
+
+    class Meta:
+        model = Home
+        fields = (
+            'username',
+            'password',
+        )
+
+    def clean(self):
+        username = self.cleaned_data.get('username')
+        try:
+            int(username)
+            self.add_error(
+                'username',
+                ValidationError(
+                    'Seu nome não pode conter apenas números!'
+                )
+            )
+        except ValueError:
+            ...
+        
+        return super().clean()
+    
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        if len(password) < 8:
+            self.add_error(
+                'password',
+                ValidationError(
+                    'Digite uma senha igual ou com mais de 8 caracteres!'
+                )
+            )
+        return password

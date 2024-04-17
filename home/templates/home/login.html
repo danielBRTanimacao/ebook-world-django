@@ -7,11 +7,10 @@
         action="{{ form_action }}" 
         method="POST" 
         class="shadow-lg p-4 rounded m-big"
-        enctype="multipart/form-data"
         > 
         {% csrf_token %}
         <div>
-            <h2 class="display-6">Crie sua conta</h2>
+            <h2 class="display-6">Entrar na conta</h2>
         </div>
         {% for field in form %}
             <div class="mb-3">
@@ -31,10 +30,10 @@
             <label for="passwordShow">Mostrar senha</label>
         </div>
 
-        <button type="submit" class="btn btn-danger form-control">Criar</button>
+        <button type="submit" class="btn btn-danger form-control">Entrar</button>
         <p>
-            ja tem uma conta?
-            <a href="{% url "home:login" %}">Fazer login</a>
+            Não tem conta? Crie uma!
+            <a href="{% url "home:cadastro" %}">Fazer login</a>
         </p>
     </form>
 </main>
