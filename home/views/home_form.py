@@ -39,8 +39,9 @@ def login(request):
         }
 
         if form.is_valid():
+            # validadar entrada de user
             home_id = form
-            return redirect('home:user', url_id=home_id.pk)
+            return redirect('home:user', url_id=home_id)
         
         return render(request, 'home/login.html', context)
         
