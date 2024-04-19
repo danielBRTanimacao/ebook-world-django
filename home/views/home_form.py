@@ -41,6 +41,7 @@ def login(request):
         if form.is_valid():
             # validadar entrada de user
             home_id = form
+            # fields pode coletar os nomes e validar o database
             return redirect('home:user', url_id=home_id)
         
         return render(request, 'home/login.html', context)
