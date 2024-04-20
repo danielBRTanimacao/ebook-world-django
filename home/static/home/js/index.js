@@ -67,8 +67,13 @@ function animateImgs(classItem) {
 animateImgs("showing");
 animateImgs("upimg");
 
-// function bookRenders() {
-//     const bookToRender = document.querySelector("a#booksRender");
-// }
+function bookRenders() {
+    let bookToRender = document.querySelector("a#booksRender");
+    for (let index = 0; index < 10; index++) {
+        bookToRender += `
+            <img width="200" class="img-fluid hidden-img py-2" src="https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg" alt="imgs-books">
+        `;
+    }
+}
 
-// bookRenders();
+bookRenders();
