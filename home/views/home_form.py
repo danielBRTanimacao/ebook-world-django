@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.contrib.auth import authenticate
 from home.forms import HomeForm, LoginHomeForm
 
 def create(request):
@@ -39,8 +40,10 @@ def login(request):
         }
 
         if form.is_valid():
-            home_validated = form
-            return redirect('home:user', url_id=home_validated.pk)
+            # home_validated = form.save()
+            username = request.POST.get("username")
+            print()
+            return redirect('home:user', url_id=username.pk)
         
         return render(request, 'home/login.html', context)
         
