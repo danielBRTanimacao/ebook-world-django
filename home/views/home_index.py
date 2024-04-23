@@ -5,13 +5,21 @@ from home.models import Home
 def index(request):
     return render(request, 'home/index.html')
 
-def user(request, url_id):
-    user_single = get_object_or_404(Home, pk=url_id)
-    context = {
-        'home': user_single,
-        'site_title': f"{user_single.username} - ",
-    }
-    return render(request, 'home/user.html', context)
+def user(request, url_id, name_person='detail'):
+    if name_person != 'detail':
+        user_single = get_object_or_404(Home, pk=url_id)
+        context = {
+            'home': user_single,
+            'site_title': f"{user_single.username} - ",
+        }
+        return render(request, 'home/user.html', context)
+    else:
+        user_single = get_object_or_404(Home, pk=url_id, username=name_person)
+        context = {
+            'home': user_single,
+            'site_title': f"{user_single.username} - ",
+        }
+        return render(request, 'home/user.html', context)
 
 def search_page(request):
     search_query = request.GET.get('q', '').strip()
