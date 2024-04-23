@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.contrib.auth import authenticate, login
 from home.forms import HomeForm, LoginHomeForm
 
 def create(request):
@@ -27,7 +28,6 @@ def create(request):
     return render(request, 'home/create.html', context)
 
 def login(request):
-    #Terminar e concerta o login
     form_action = reverse('home:login')
 
     if request.method == 'POST':
@@ -39,8 +39,14 @@ def login(request):
         }
 
         if form.is_valid():
-            home_validated = form
-            return redirect('home:user', url_id=home_validated.pk)
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(form, username=username, password=password)
+            print(user)
+            if user is not None:
+                login(request, user)
+            validated = 1000
+            return redirect('home:user', url_id=validated)
         
         return render(request, 'home/login.html', context)
         
