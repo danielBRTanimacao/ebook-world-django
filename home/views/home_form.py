@@ -41,12 +41,13 @@ def login(request):
         if form.is_valid():
             username = request.POST.get('username')
             password = request.POST.get('password')
-            user = authenticate(form, username=username, password=password)
+            #tentar usar o form ao inves do user tradicional
+            user = authenticate(HomeForm, username=username, password=password)
             print(user)
             if user is not None:
-                login(request, user)
-            validated = 1000
-            return redirect('home:user', url_id=validated)
+                login(request, 'home:user', url_id=user.pk)
+            # validated = 1011
+            # return redirect('home:user', url_id=validated)
         
         return render(request, 'home/login.html', context)
         
