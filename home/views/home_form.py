@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from django.contrib.auth import authenticate, login
-from home.forms import HomeForm, LoginHomeForm
+from home.forms import HomeForm
 
 def create(request):
     form_action = reverse('home:cadastro')
@@ -16,7 +15,7 @@ def create(request):
 
         if form.is_valid():
             home_id = form.save()
-            return redirect('home:user', url_id=home_id.pk)
+            return redirect('home:account', url_id=home_id.pk)
         
         return render(request, 'home/create.html', context)
         
@@ -27,33 +26,47 @@ def create(request):
     }
     return render(request, 'home/create.html', context)
 
-def login(request):
-    form_action = reverse('home:login')
+def update(request, url_id, name_person):
+    home_user = get_object_or_404(HomeForm, pk=url_id)
+    form_action = reverse('home:update', args=(url_id,))
 
     if request.method == 'POST':
-        form = LoginHomeForm(request.POST)
+        form = HomeForm(request.POST, instance=home_user)
+
         context = {
-            'site_title': "Login - ",
+            'site_title': "Update - ",
             'form': form,
             'form_action': form_action,
         }
 
         if form.is_valid():
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            #tentar usar o form ao inves do user tradicional
-            user = authenticate(HomeForm, username=username, password=password)
-            print(user)
-            if user is not None:
-                login(request, 'home:user', url_id=user.pk)
-            # validated = 1011
-            # return redirect('home:user', url_id=validated)
+            home_id = form.save()
+            return redirect('home:user', url_id=home_id.pk)
         
-        return render(request, 'home/login.html', context)
+        return render(request, 'home/create.html', context)
         
     context = {
-        'site_title': "Login - ",
-        'form': LoginHomeForm(),
+        'site_title': "Update - ",
+        'form': HomeForm(instance=home_user),
         'form_action': form_action,
     }
-    return render(request, 'home/login.html', context)
+    return render(request, 'home/create.html', context)
+
+
+def delete(request, url_id, name_person):
+    home_user = get_object_or_404(
+        HomeForm,
+        pk=url_id
+    )
+
+    confirmation = request.POST.get('confirmation', 'no')
+ 
+    if confirmation == 'yes':
+        home_user.delete()
+        return redirect('contact:index')
+
+    return render(request, 'home/account.html', {
+        'site_title': "Delete - ",
+        'form': home_user,
+        'confirmation': confirmation,
+    })
