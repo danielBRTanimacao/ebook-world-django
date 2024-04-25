@@ -6,16 +6,13 @@ def index(request):
     return render(request, 'home/index.html')
 
 def user(request, url_id, name_person):
-    user_single = get_object_or_404(Home, pk=url_id)
-    if name_person != user_single.username:
-        return redirect('home:index')
+    user_single = get_object_or_404(Home, pk=url_id, username=name_person)
     context = {
         'home': user_single,
         'site_title': f"{user_single.username} - ",
     }
     return render(request, 'home/user.html', context)
 
-# Criar permissão para este usuario
 def account(request, url_id):
     user_single = get_object_or_404(Home, pk=url_id)
     context = {

@@ -27,7 +27,7 @@ def create(request):
     return render(request, 'home/create.html', context)
 
 def update(request, url_id, name_person):
-    home_user = get_object_or_404(HomeForm, pk=url_id)
+    home_user = get_object_or_404(HomeForm, pk=url_id, username=name_person)
     form_action = reverse('home:update', args=(url_id,))
 
     if request.method == 'POST':
@@ -56,7 +56,8 @@ def update(request, url_id, name_person):
 def delete(request, url_id, name_person):
     home_user = get_object_or_404(
         HomeForm,
-        pk=url_id
+        pk=url_id,
+        username=name_person
     )
 
     confirmation = request.POST.get('confirmation', 'no')

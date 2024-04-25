@@ -38,10 +38,33 @@
             </nav>
         </header>
         <div class="border-orange"></div>
+        <div class="modal modal-xl" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="configModalLabel">Configurações</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h1>Update basico</h1>
+                        <div>
+                            <a href=""></a>
+                        </div>
+                        <form action="" method="POST">
+                            <button>Deletar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+        </div>
+          
         <section class="row text-center">
             <div class="col-lg-3 text-start">
                 <div class="input-group">
-                    <a href="" class="btn btn-outline-dark form-control">
+                    <a href="" class="btn btn-outline-dark form-control" data-bs-toggle="modal" data-bs-target="#configModal">
                         <i class="bi bi-gear"></i>
                     </a>
                     <!-- Ajeitando config-->
