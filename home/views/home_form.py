@@ -41,7 +41,7 @@ def update(request, url_id, name_person):
 
         if form.is_valid():
             home_id = form.save()
-            return redirect('home:user', url_id=home_id.pk)
+            return redirect('home:account', url_id=home_id.pk)
         
         return render(request, 'home/create.html', context)
         
@@ -63,7 +63,7 @@ def delete(request, url_id, name_person):
  
     if confirmation == 'yes':
         home_user.delete()
-        return redirect('contact:index')
+        return redirect('home:index')
 
     return render(request, 'home/account.html', {
         'site_title': "Delete - ",
