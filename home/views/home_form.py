@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from home.forms import HomeForm
+from home.models import Home
 
 def create(request):
     form_action = reverse('home:cadastro')
@@ -27,7 +28,7 @@ def create(request):
     return render(request, 'home/create.html', context)
 
 def update(request, url_id, name_person):
-    home_user = get_object_or_404(HomeForm, pk=url_id, username=name_person)
+    home_user = get_object_or_404(Home, pk=url_id, username=name_person)
     form_action = reverse('home:update', args=(url_id, name_person,))
 
     if request.method == 'POST':
@@ -54,11 +55,7 @@ def update(request, url_id, name_person):
 
 
 def delete(request, url_id, name_person):
-    home_user = get_object_or_404(
-        HomeForm,
-        pk=url_id,
-        username=name_person
-    )
+    home_user = get_object_or_404(Home, pk=url_id, username=name_person)
 
     confirmation = request.POST.get('confirmation', 'no')
  
