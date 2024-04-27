@@ -28,7 +28,7 @@ def create(request):
 
 def update(request, url_id, name_person):
     home_user = get_object_or_404(HomeForm, pk=url_id, username=name_person)
-    form_action = reverse('home:update', args=(url_id,))
+    form_action = reverse('home:update', args=(url_id, name_person,))
 
     if request.method == 'POST':
         form = HomeForm(request.POST, instance=home_user)
