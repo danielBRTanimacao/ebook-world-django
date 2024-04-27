@@ -66,5 +66,5 @@ def delete(request, url_id, name_person):
     return render(request, 'home/account.html', {
         'site_title': "Delete - ",
         'form': home_user,
-        'confirmation': confirmation,
+        'confirmation': confirmation
     })

@@ -52,7 +52,7 @@
                                 Update
                             </a>
                         </div>
-                        <h4>Delete basico</h4>
+                        <h4 class="py-2">Delete basico</h4>
                         <form action="{% url "home:delete" home.id home.username %}" method="POST">
                             {% csrf_token %}
                             {% if confirmation == 'no' %}
@@ -69,8 +69,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
           
