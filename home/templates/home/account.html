@@ -48,10 +48,12 @@
                     <div class="modal-body">
                         <h4>Update basico</h4>
                         <div>
-                            <a href="{% url "home:update" home.id %}"></a>
+                            <a href="{% url "home:update" home.id home.username %}">
+                                Update
+                            </a>
                         </div>
                         <h4>Delete basico</h4>
-                        <form action="{% url "home:delete" home.id %}" method="POST">
+                        <form action="{% url "home:delete" home.id home.username %}" method="POST">
                             {% csrf_token %}
                             {% if confirmation == 'no' %}
                                 <input type="hidden" name="confirmation" value='yes'>
