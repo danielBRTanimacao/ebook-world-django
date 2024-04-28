@@ -63,8 +63,10 @@ def delete(request, url_id, name_person):
         home_user.delete()
         return redirect('home:index')
 
-    return render(request, 'home/account.html', {
+    context =  {
         'site_title': "Delete - ",
-        'form': home_user,
-        'confirmation': confirmation
-    })
+        'home': home_user,
+        'confirmation': confirmation,
+    }
+
+    return render(request, 'home/account.html', context)
