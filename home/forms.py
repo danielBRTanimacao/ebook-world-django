@@ -4,6 +4,14 @@ from django.core.exceptions import ValidationError
 from home.models import Home
 
 class HomeForm(forms.ModelForm):
+    picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'accept': 'image/*'
+            }
+        )
+    )
+
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
@@ -40,6 +48,7 @@ class HomeForm(forms.ModelForm):
             'username',
             'email',
             'password',
+            'picture',
         )
 
     def clean(self):
