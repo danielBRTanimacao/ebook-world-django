@@ -9,7 +9,7 @@
                 <a href="{% url "home:update" home.id home.username %}" class="hover-img">
                     <img 
                         class="rounded person-icon" 
-                        src="https://img.skoob.com.br/TxNgSdXjOvmgBpxEi6v_-QT-Dg8=/170x170/center/top/smart/filters:format(jpeg)/https://skoob.s3.amazonaws.com/usuarios/9994059/9994059SK-V11691708001G.jpg" 
+                        src="{{ home.picture }}" 
                         alt="img-person" >
                     <!-- Tentando fazer um ponto -->
                     <div class="point-float"></div>
