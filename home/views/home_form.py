@@ -39,9 +39,11 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
+            return redirect('home:account')
 
     context = {
         'site_title': "Login - ",
+        'form': form,
         'register': 'Login'
     }
     return render(request, 'home/login.html', context)
