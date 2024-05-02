@@ -8,10 +8,12 @@
                 <!-- Fazer um img field -->
                 <a href="{% url "home:update" home.id home.username %}" class="hover-img">
                     <!-- coletando imagem e adicionando no user-->
-                    <img 
-                        class="rounded person-icon" 
-                        src="{{ home.picture }}" 
-                        alt="img-person" >
+                    {% if home.picture %}
+                        <img 
+                            class="rounded person-icon" 
+                            src="{{ home.picture.url }}" 
+                            alt="img-person" >
+                    {% endif %}
                     <!-- Tentando fazer um ponto -->
                     <div class="point-float"></div>
                 </a>
