@@ -7,6 +7,7 @@
             <nav class="container-fluid">
                 <!-- Fazer um img field -->
                 <a href="{% url "home:update" home.id home.username %}" class="hover-img">
+                    <!-- coletando imagem e adicionando no user-->
                     <img 
                         class="rounded person-icon" 
                         src="{{ home.picture }}" 
