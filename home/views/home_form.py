@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import auth
 from django.urls import reverse
 from home.forms import HomeForm
 from home.models import Home
@@ -24,8 +26,25 @@ def create(request):
         'site_title': "Registrar - ",
         'form': HomeForm(),
         'form_action': form_action,
+        'register': 'Crie sua conta'
     }
     return render(request, 'home/create.html', context)
+
+def login_view(request):
+    form = AuthenticationForm(request)
+
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+            user = form.get_user()
+            auth.login(request, user)
+
+    context = {
+        'site_title': "Login - ",
+        'register': 'Login'
+    }
+    return render(request, 'home/login.html', context)
 
 def update(request, url_id, name_person):
     home_user = get_object_or_404(Home, pk=url_id, username=name_person)

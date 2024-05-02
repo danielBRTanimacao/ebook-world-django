@@ -9,7 +9,8 @@ class HomeForm(forms.ModelForm):
             attrs={
                 'accept': 'image/*'
             }
-        )
+        ),
+        label='Foto perfil'
     )
 
     username = forms.CharField(
