@@ -44,7 +44,7 @@ def login_view(request):
     context = {
         'site_title': "Login - ",
         'form': form,
-        'register': 'Login'
+        'register': 'Login',
     }
     return render(request, 'home/login.html', context)
 
