@@ -10,6 +10,7 @@ urlpatterns = [
     #User
     path('user/<int:url_id>/detail/', views.account, name='account'),
     path('user/<int:url_id>/<str:name_person>/', views.user_view, name='user'),
+        
     path('user/<int:url_id>/config/', views.config_account, name='config'),
 
     #Update Delete
