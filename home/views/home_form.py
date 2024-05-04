@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 from django.urls import reverse
-from home.forms import RegisterForm
+from home.forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
@@ -14,20 +13,23 @@ def create(request):
 
         if form.is_valid():
             form.save()
-            return redirect('home:index')
+            return redirect('home:account')
 
     context = {
         'site_title': "Registrar - ",
         'form': form,
-        'register': 'Crie sua conta'
+        'register': 'Crie sua conta',
+        'account_login': 'Fazer login',
+        'have_account': 'ja tem uma conta?',
+        'btn_send': 'Criar'
     }
     return render(request, 'home/create.html', context)
 
 def login_view(request):
-    form = AuthenticationForm(request)
+    form = LoginForm(request)
 
     if request.method == "POST":
-        form = AuthenticationForm(request, data=request.POST)
+        form = LoginForm(request, data=request.POST)
 
         if form.is_valid():
             user = form.get_user()
@@ -37,7 +39,10 @@ def login_view(request):
     context = {
         'site_title': "Login - ",
         'form': form,
-        'register': 'Entrar na conta'
+        'register': 'Entrar na conta',
+        'account_login': 'Criar conta',
+        'have_account': 'não tem uma conta?',
+        'btn_send': 'Entrar'
     }
 
     return render(request, 'home/login.html', context)

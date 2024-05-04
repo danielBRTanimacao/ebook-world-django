@@ -31,9 +31,13 @@ enctype="multipart/form-data"
     <label for="passwordShow">Mostrar senha</label>
 </div>
 
-<button type="submit" class="btn btn-danger form-control">Criar</button>
+<button type="submit" class="btn btn-danger form-control">{{ btn_send }}</button>
 <p>
-    ja tem uma conta?
-    <a href="{% url "home:cadastro" %}">Fazer login</a>
+    {{ have_account }}
+    {% if btn_send == "Criar" %}
+        <a href="{% url "home:login" %}">{{ account_login }}</a>
+    {% else %}
+        <a href="{% url "home:cadastro" %}">{{ account_login }}</a>
+    {% endif %}
 </p>
 </form>
