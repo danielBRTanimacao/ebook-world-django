@@ -1,25 +1,26 @@
 from django.shortcuts import render, get_object_or_404, redirect
-
-from home.models import Home
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 def index(request):
     return render(request, 'home/index.html')
 
-def user(request, url_id, name_person):
-    user_single = get_object_or_404(Home, pk=url_id, username=name_person)
+def user_view(request, url_id, name_person):
+    user_single = get_object_or_404(User, pk=url_id, username=name_person)
     context = {
         'home': user_single,
         'site_title': f"{user_single.username} - ",
     }
     return render(request, 'home/user.html', context)
 
+@login_required(login_url='home:login')
 def account(request, url_id):
-    user_single = get_object_or_404(Home, pk=url_id)
+    user_single = get_object_or_404(User, pk=url_id)
     context = {
         'home': user_single,
         'site_title': f"{user_single.username} - ",
     }
-    return render(request, 'home/account.html', context)
+    return render(request, 'home/user.html', context)
 
 def search_page(request):
     search_query = request.GET.get('q', '').strip()

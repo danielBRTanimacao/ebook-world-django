@@ -3,7 +3,14 @@
 {% block content %}
 
 <main class="pt-5">
-    {% include "home/partials/_user-form.html" %}
+    {% if user.is_authenticated %}
+        <p>
+            Você fez login como {{ user.username }}
+            Clique <a href="{% url "home:logout" %}">Aqui</a> para sair.
+        </p>
+    {% else %}
+        {% include "home/partials/_user-form.html" %}
+    {% endif %}
 </main>
 
 <script>

@@ -2,30 +2,23 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
 from django.urls import reverse
-from home.forms import HomeForm
-from home.models import Home
+from home.forms import RegisterForm
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 def create(request):
-    form_action = reverse('home:cadastro')
+    form = RegisterForm()
 
     if request.method == 'POST':
-        form = HomeForm(request.POST)
-        context = {
-            'site_title': "Registrar - ",
-            'form': form,
-            'form_action': form_action,
-        }
+        form = RegisterForm(request.POST)
 
         if form.is_valid():
-            home_id = form.save()
-            return redirect('home:account', url_id=home_id.pk)
-        
-        return render(request, 'home/create.html', context)
-        
+            form.save()
+            return redirect('home:index')
+
     context = {
         'site_title': "Registrar - ",
-        'form': HomeForm(),
-        'form_action': form_action,
+        'form': form,
         'register': 'Crie sua conta'
     }
     return render(request, 'home/create.html', context)
@@ -33,27 +26,29 @@ def create(request):
 def login_view(request):
     form = AuthenticationForm(request)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
 
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            return redirect('home:account')
+            return redirect('home:index')
 
     context = {
         'site_title': "Login - ",
         'form': form,
-        'register': 'Login',
+        'register': 'Entrar na conta'
     }
+
     return render(request, 'home/login.html', context)
 
+@login_required(login_url='home:login')
 def update(request, url_id, name_person):
-    home_user = get_object_or_404(Home, pk=url_id, username=name_person)
+    home_user = get_object_or_404(User, pk=url_id, username=name_person)
     form_action = reverse('home:update', args=(url_id, name_person,))
 
     if request.method == 'POST':
-        form = HomeForm(request.POST, instance=home_user)
+        form = RegisterForm(request.POST, instance=home_user)
 
         context = {
             'site_title': "Update - ",
@@ -69,14 +64,14 @@ def update(request, url_id, name_person):
         
     context = {
         'site_title': "Update - ",
-        'form': HomeForm(instance=home_user),
+        'form': RegisterForm(instance=home_user),
         'form_action': form_action,
     }
     return render(request, 'home/create.html', context)
 
-
+@login_required(login_url='home:login')
 def delete(request, url_id, name_person):
-    home_user = get_object_or_404(Home, pk=url_id, username=name_person)
+    home_user = get_object_or_404(User, pk=url_id, username=name_person)
 
     confirmation = request.POST.get('confirmation', 'no')
  
@@ -90,4 +85,9 @@ def delete(request, url_id, name_person):
         'confirmation': confirmation,
     }
 
-    return render(request, 'home/account.html', context)
+    return render(request, 'home/user.html', context)
+
+@login_required(login_url='home:login')
+def logout_view(request):
+    auth.logout(request)
+    return redirect('home:login')

@@ -151,22 +151,6 @@ input[type="checkbox"]:checked {
     transform: translateY(0);
 }
 
-.point-float {
-    position: relative;
-    opacity: 0;
-    border-radius: 20px;
-    height: 40px;
-    width: 40px;
-    background-color: rgb(255, 255, 255);
-    top: -100px;
-    right: -60px;
-}
-
-.hover-img:hover .point-float {
-    transition: all 0.2s ease-in-out;
-    opacity: 70%;
-}
-
 @media (max-width: 1199.98px) {
     .fade img {
         height: 450px;
