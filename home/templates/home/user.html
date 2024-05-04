@@ -14,7 +14,7 @@
                             src="{{ home.picture.url }}" 
                             alt="img-person" >
                     {% else %}
-                        <i class="bi bi-person"></i>
+                        <i class="bi bi-person display-1 text-dark"></i>
                     {% endif %}
                 </a>
                 <h3 class="display-6 px-2">
@@ -57,10 +57,16 @@
                         <a href="" class="btn btn-outline-dark form-control">
                             <i class="bi bi-envelope"></i>
                         </a>
+                        {% if user.owner %} 
+                            <a href="" class="btn btn-outline-dark form-control">
+                                <i class="bi bi-person-add"></i>
+                                Adicionar +
+                            </a>
+                        {% endif %}
                     {% else %}
                         <a href="" class="btn btn-outline-dark form-control">
                             <i class="bi bi-person-add"></i>
-                            Adicionar +
+                            Crie uma conta para adicionar pessoas
                         </a>
                     {% endif %}
                 </div>
