@@ -1,0 +1,35 @@
+{% extends "global/base.html" %}
+{% block content %}
+    <main>
+        <h1>
+            Configurações
+        </h1>
+        <div>
+            <h4>
+                Update basico
+            </h4>
+                <div>
+                    <a href="{% url "home:update" home.id home.username %}" class="btn btn-danger">
+                        Update
+                    </a>
+                </div>
+
+            <h4 class="py-2">
+                Delete basico
+            </h4>
+            <form action="{% url "home:delete" home.id home.username %}" method="POST">
+                {% csrf_token %}
+                {% if confirmation == 'no' %}
+                    <input type="hidden" name="confirmation" value='yes'>
+                    <button class="btn btn-danger" type="submit">
+                        Confirma?
+                    </button>
+                {% else %}
+                    <button class="btn btn-danger" type="submit">
+                        Delete
+                    </button>
+                {% endif %}
+            </form>
+        </div>
+    </main>
+{% endblock content %}

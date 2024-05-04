@@ -22,6 +22,13 @@ def account(request, url_id):
     }
     return render(request, 'home/user.html', context)
 
+@login_required(login_url='home:login')
+def config_account(request):
+    context = {
+        'site_title': 'Configuração'
+    }
+    return render(request, 'home/config.html', context)
+
 def search_page(request):
     search_query = request.GET.get('q', '').strip()
     if search_page == '':

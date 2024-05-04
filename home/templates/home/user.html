@@ -46,47 +46,11 @@
             </nav>
         </header>
         <div class="border-orange"></div>
-        <div class="modal modal-xl" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="configModalLabel">Configurações</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h4>Update basico</h4>
-                        <div>
-                            <a href="{% url "home:update" home.id home.username %}" class="btn btn-danger">
-                                Update
-                            </a>
-                        </div>
-                        <h4 class="py-2">Delete basico</h4>
-                        <form action="{% url "home:delete" home.id home.username %}" method="POST">
-                            {% csrf_token %}
-                            {% if confirmation == 'no' %}
-                                <input type="hidden" name="confirmation" value='yes'>
-                                <button class="btn btn-danger" type="submit">
-                                    Confirma?
-                                </button>
-                            {% else %}
-                                <button class="btn btn-danger" type="submit">
-                                    Delete
-                                </button>
-                            {% endif %}
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-          
         <section class="row text-center">
             <div class="col-lg-3 text-start">
                 <div class="input-group">
                     {% if user.is_authenticated %}
-                        <a href="" class="btn btn-outline-dark form-control" data-bs-toggle="modal" data-bs-target="#configModal">
+                        <a href="{% url "home:config" %}" class="btn btn-outline-dark form-control">
                             <i class="bi bi-gear"></i>
                         </a>
                         <!-- Ajeitando config-->
