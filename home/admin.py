@@ -6,5 +6,5 @@ from home import models
 class UsersInfosAdmin(admin.ModelAdmin):
     list_display = (
         'id',
-        'username',
+        'owner',
     )

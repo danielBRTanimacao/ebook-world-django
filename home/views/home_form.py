@@ -12,7 +12,9 @@ def create(request):
         form = RegisterForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            user_owner = form.save(commit=False)
+            user_owner.owner = request.user
+            user_owner.save()
             return redirect('home:index')
 
     context = {
