@@ -8,10 +8,10 @@
                 <!-- Fazer um img field ajeitar css -->
                 <a href="{% url "home:update" home.id home.username %}" class="hover-img">
                     <!-- coletando imagem e adicionando no user-->
-                    {% if home.picture %}
+                    {% if user_info.picture %}
                         <img 
                             class="rounded person-icon" 
-                            src="{{ home.picture.url }}" 
+                            src="{{ user_info.picture.url }}" 
                             alt="img-person" >
                     {% else %}
                         <i class="bi bi-person display-1 text-dark"></i>
@@ -29,7 +29,7 @@
                             <div class="nav-link">
                                 Total de Livros
                                 <p class="text-center fs-5">
-                                    {{ home.all_books }}
+                                    {{ user_info.all_books }}
                                 </p>
                             </div>
                         </li>
@@ -37,7 +37,7 @@
                             <div class="nav-link">
                                 Total de paginas               
                                 <p class="text-center fs-5">
-                                    {{ home.all_pages }}
+                                    {{ user_info.all_pages }}
                                 </p>
                             </div>
                         </li>
@@ -96,6 +96,9 @@
                         <header>Post</header>
                         <div>
                             Conteudo do header
+                        </div>
+                        <div>
+                            {{ user_info.description }}
                         </div>
                     </div>
                 </section>
