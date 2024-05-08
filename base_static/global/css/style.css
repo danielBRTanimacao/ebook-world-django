@@ -113,7 +113,7 @@ input[type="checkbox"]:checked {
     margin: 0 15px;
     border-bottom: 20px solid #dc6b19;
     border-radius: 5px;
-    top: -70px;
+    top: -50px;
 }
 
 .errorlist {

@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from home.forms import RegisterForm, RegisterUpdateForm
-# from home.models import UsersInfos
 
 def create(request):
     form = RegisterForm()
@@ -13,9 +12,7 @@ def create(request):
         form = RegisterForm(request.POST)
 
         if form.is_valid():
-            user = form.save(commit=False)
-            user.owner = request.user
-            user.save()
+            form.save()
             return redirect('home:index')
 
     context = {

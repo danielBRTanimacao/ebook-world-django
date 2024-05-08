@@ -6,13 +6,14 @@
         <header class="navbar navbar-expand-lg">
             <nav class="container-fluid">
                 <!-- Fazer um img field ajeitar css -->
-                <a href="{% url "home:update" home.id home.username %}" class="hover-img">
+                <a href="{% url "home:update" home.id home.username %}">
                     <!-- coletando imagem e adicionando no user-->
                     {% if user_info.picture %}
                         <img 
-                            class="rounded person-icon" 
+                            class="rounded-circle person-icon" 
                             src="{{ user_info.picture.url }}" 
-                            alt="img-person" >
+                            alt="img-person" 
+                            width="200">
                     {% else %}
                         <i class="bi bi-person display-1 text-dark"></i>
                     {% endif %}

@@ -6,6 +6,7 @@ from home.models import UsersInfos
 def index(request):
     return render(request, 'home/index.html')
 
+@login_required(login_url='home:login')
 def user_view(request, url_id, name_person):
     user_single = get_object_or_404(User, pk=url_id, username=name_person)
     user_infos = get_object_or_404(UsersInfos, owner=url_id)
