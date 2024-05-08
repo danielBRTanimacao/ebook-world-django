@@ -7,11 +7,12 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('search/', views.search_page, name='search'),
 
+    #Configs
+    path('user/<int:url_id>/config/', views.config_account, name='config_user'),
+
     #User
     path('user/<int:url_id>/detail/', views.account, name='account'),
     path('user/<int:url_id>/<str:name_person>/', views.user_view, name='user'),
-        
-    path('user/<int:url_id>/config/', views.config_account, name='config'),
 
     #Update Delete
     path('user/<int:url_id>/<str:name_person>/update/', views.update, name='update'),

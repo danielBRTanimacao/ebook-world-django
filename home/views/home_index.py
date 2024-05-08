@@ -37,9 +37,11 @@ def account(request, url_id):
 @login_required(login_url='home:login')
 def config_account(request, url_id):
     user_single = get_object_or_404(User, pk=url_id)
+    user_infos = get_object_or_404(UsersInfos, owner=url_id)
     context = {
         'home': user_single,
-        'site_title': "Config",
+        'user_info': user_infos,
+        'site_title': f"{user_single.username} Config - ",
     }
     return render(request, 'home/config.html', context)
 
