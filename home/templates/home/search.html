@@ -31,7 +31,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                      {% if user_authenticated %}
+                      {% if user.is_authenticated %}
                         <button type="button" class="btn btn-primary">Adicionar livro</button>
                       {% else %}
                         <a href="{% url "home:cadastro" %}" class="btn btn-primary">Crie a conta para adicionar um livro</a>
