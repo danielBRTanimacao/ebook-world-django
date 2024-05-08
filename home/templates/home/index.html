@@ -25,43 +25,100 @@
     </div>
 </aside>
 
-<main class="container pt-5">
-    <section class="row view-100">
-        <div class="col-lg-6" id="colum">
-            <h3 class="display-3 text-danger">
-                A maior biblioteca do mundo
-                <span class="text-danger-emphasis">EbookWorld.</span>
-            </h3>
-            <p class="lead">
-                Experimente a conveniência de levar consigo uma biblioteca inteira em seu bolso
-            </p>
-            <a href="{% url "home:cadastro" %}" class="btn btn-danger btn-lg">Experimente grátis</a>
-        </div>
-        <div class="col-lg-6 not-visible" id="visible-img">
-            <img 
-                class="img-fluid rounded"
-                src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1798&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                alt="img-teste"
-            >
-        </div>
-    </section>
-    <hr>
-    <section>
-        <div>
-            <h1 class="display-4 text-danger hidden">
-                Que tipo de livro esta procurando?
-            </h1>
-            <h2 class="display-5 hidden">
-                Aqui temos todos os tipos!
-            </h2>
-        </div>
-        <div class="text-center">
-            <a href="{% url "home:cadastro" %}">
-                <img width="200" class="img-fluid hidden-img py-2" src="https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg" alt="imgs-books">
-            </a>
-        </div>
-    </section>
-</main>
+{% if not user.is_authenticated %}
+    <main class="container pt-5">
+        <section class="row view-100">
+            <div class="col-lg-6" id="colum">
+                <h3 class="display-3 text-danger">
+                    A maior biblioteca do mundo
+                    <span class="text-danger-emphasis">EbookWorld.</span>
+                </h3>
+                <p class="lead">
+                    Experimente a conveniência de levar consigo uma biblioteca inteira em seu bolso
+                </p>
+                <a href="{% url "home:cadastro" %}" class="btn btn-danger btn-lg">Experimente grátis</a>
+            </div>
+            <div class="col-lg-6 not-visible" id="visible-img">
+                <img 
+                    class="img-fluid rounded"
+                    src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1798&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                    alt="img-teste"
+                >
+            </div>
+        </section>
+        <hr>
+        <section>
+            <div>
+                <h1 class="display-4 text-danger hidden">
+                    Que tipo de livro esta procurando?
+                </h1>
+                <h2 class="display-5 hidden">
+                    Aqui temos todos os tipos!
+                </h2>
+            </div>
+            <div class="text-center">
+                <div class="py-1">
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://marketplace.canva.com/EAFq91U_RUs/1/0/1003w/canva-capa-de-livro-de-fantasia-elegante-verde-e-bege-awJX91ybn9w.jpg" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://marketplace.canva.com/EAD0UPCkitY/1/0/1024w/canva-capa-de-livro-de-suspense-monocrom%C3%A1tica-com-foto-de-floresta-U1dpnJ3bwKw.jpg" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://edit.org/img/blog/zz7-flyer-personalizavel-para-capas-de-livros.webp" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://ocapista.com.br/imgs/capas/capa_livro_fantasia.jpg" alt="imgs-books">
+                    </a>
+                </div>
+                <div class="py-1">
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://marketplace.canva.com/EAE6PMW8esk/1/0/1003w/canva-capa-de-livro-vermelho-e-preto-contorno-romance-chick-lit-5cdERsfaKTY.jpg" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://www.designcomcafe.com.br/wp-content/uploads/2017/08/capas-de-livros-solo.jpg" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://m.media-amazon.com/images/I/815d9tE7jSL._AC_UF1000,1000_QL80_.jpg" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://m.media-amazon.com/images/I/91r5G8RxqfL._AC_UF1000,1000_QL80_DpWeblab_.jpg" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKLWxoijEOlVK2IFReQG5t5LrZ2p7uhY-wS8rJR7CIsg&s" alt="imgs-books">
+                    </a>
+                </div>
+                <div class="py-1">
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9lDzFrbdcyKIsPDqLLq7rKxHih8rh-pAFeIrdoZWx_g&s" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm-434axlH7U8qUX5sj0ll5xs-_hEkjD-cG2cw9LWFew&s" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://m.media-amazon.com/images/I/91g9Dvtf+jL._AC_UF1000,1000_QL80_.jpg" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://cdl-static.s3-sa-east-1.amazonaws.com/blog/artigo/6463/images/71-livros-infantis-e-12-propositos-para-escolher-o-que-combina-com-sua-crianca_29.jpg" alt="imgs-books">
+                    </a>
+                    <a href="{% url "home:cadastro" %}">
+                        <img width="200" class="img-fluid py-2 hidden-img" src="https://m.media-amazon.com/images/I/51DOkmV31rL.AC_SX250.jpg" alt="imgs-books">
+                    </a>
+                </div>
+                <a href="{% url "home:cadastro" %}" class="py-2 btn btn-outline-danger">
+                    Veja mais...
+                </a>
+            </div>
+        </section>
+    </main>
+    {% else %}
+    <main class="container pt-5">
+        <h1>Opa</h1>
+    </main>
+{% endif %}
 
 {% include "global/partials/footer.html" %}
 
