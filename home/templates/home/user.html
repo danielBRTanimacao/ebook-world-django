@@ -94,7 +94,44 @@
                 {% endif %}
                 <section>
                     <!-- Exemplo post -->
-                    <div class="my-2 border rounded">
+                    <div class="my-4 border rounded post-user">
+                        <header>
+                        {% if user_info.picture %}
+                            <img 
+                                class="rounded-circle person-icon" 
+                                src="{{ user_info.picture.url }}" 
+                                alt="img-person" 
+                                width="100">
+                        {% else %}
+                            <i class="bi bi-person display-6 text-dark"></i>
+                        {% endif %}
+                        <span>
+                            {{ home.username }} - 1 d
+                        </span>
+                        </header>
+                        <div>
+                            <!-- Mudar tag -->
+                            <img width="400" src="https://darkside.vtexassets.com/arquivos/ids/191890/Livro-Magico-2.png?v=638206199109000000" alt="book">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptas suscipit, rerum totam aliquam temporibus.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#">
+                                <i class="bi bi-heart fs-2"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-chat-left fs-2"></i>
+                            </a>
+                            <a href="#">
+                                <i class="bi bi-bookmark fs-2"></i>
+                            </a>
+                        </div>
+                        <div>
+                            {{ user_info.description }}
+                        </div>
+                    </div>
+                    <div class="my-4 border rounded post-user">
                         <header>
                             foto do user que postou, nome dele e quando ele postou
                         </header>
