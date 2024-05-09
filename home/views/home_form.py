@@ -50,34 +50,28 @@ def login_view(request):
     return render(request, 'home/login.html', context)
 
 @login_required(login_url='home:login')
-def update(request, url_id, name_person):
-    update_user = get_object_or_404(User, pk=url_id, username=name_person)
-    user_infos = get_object_or_404(UsersInfos, owner=request.user)
-    form_action = reverse('home:update', args=(url_id,))
+def update(request):
+    form = RegisterUpdateForm(instance=request.user)
 
-    if request.method == "POST":
-        form = RegisterUpdateForm(request.POST, request.FILES, instance=update_user)
+    if request.method != 'POST':
         context = {
+            'site_title': "Update - ",
             'form': form,
-            'form_action': form_action,
-            'site_title': 'Update - '
+            'register': 'Update na conta',
+            'btn_send': 'Enviar'
         }
-
-        if form.is_valid():
-            user = form.save()
-            return redirect('home:update', url_id=user.pk)
-        
         return render(request, 'home/create.html', context)
-    context = {
-        'form': RegisterUpdateForm(instance=update_user),
-        'form_action': form_action,
-        'site_title': 'Update - ',
-    }
-    return render(request, 'home/create.html', context)
+    
+    form = RegisterUpdateForm(data=request.POST, instance=request.user)
 
-@login_required(login_url='home:login')
-def delete(request):
-    return render(request, 'home:index')
+    if not form.is_valid():
+        context = {
+            'form': form
+        }
+        return render(request, 'contact/create.html', context)
+    
+    form.save()
+    return redirect('contact:update')
 
 @login_required(login_url='home:login')
 def logout_view(request):

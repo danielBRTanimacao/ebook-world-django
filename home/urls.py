@@ -14,9 +14,8 @@ urlpatterns = [
     path('user/<int:url_id>/detail/', views.account, name='account'),
     path('user/<int:url_id>/<str:name_person>/', views.user_view, name='user'),
 
-    #Update Delete
-    path('user/<int:url_id>/<str:name_person>/update/', views.update, name='update'),
-    path('user/<int:url_id>/<str:name_person>/delete/', views.delete, name='delete'),
+    #Update
+    path('user/update/', views.update, name='update'),
     path('user/logout/', views.logout_view, name='logout'),
 
     #Create

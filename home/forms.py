@@ -65,29 +65,41 @@ class RegisterForm(UserCreationForm):
 
 class RegisterUpdateForm(forms.ModelForm):
 
-    first_name = forms.CharField(
-        min_length=2,
+    username = forms.CharField(
+        min_length=5,
         max_length=30,
-        required=True,
-        help_text='Required. ',
-        error_messages={
-            'min_length': 'Please add more than 2 letters.'
-        }
+        label='Seu nome',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Seu nome...'
+            }
+        ),
+        help_text='Crie um nome novo valido',
+        required=False,
     )
 
-    last_name = forms.CharField(
-        min_length=2,
-        max_length=30,
-        required=True,
-        help_text='Required. ',
+    email = forms.EmailField(
+        label='Novo Email',
+        widget=forms.EmailInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder':'Email...',
+            }
+        ),
+        help_text='Crie um email valido',
+        required=False,
     )
+
 
     password1 = forms.CharField(
-        label='Password',
+        label='Senha',
         strip=False,
         widget=forms.PasswordInput(
             attrs={
-                'autocomplete': 'new-password'
+                'autocomplete': 'new-password',
+                'class': 'form-control',
+                'id': 'passwordShow'
             }
         ),
         help_text=password_validation.password_validators_help_text_html(),
@@ -95,21 +107,23 @@ class RegisterUpdateForm(forms.ModelForm):
     )
 
     password2 = forms.CharField(
-        label='Password',
+        label='Segunda Senha',
         strip=False,
         widget=forms.PasswordInput(
             attrs={
-                'autocomplete': 'new-password'
+                'autocomplete': 'new-password',
+                'class': 'form-control',
+                'id': 'passwordShow'
             }
         ),
-        help_text='Use the same password as before',
+        help_text='Use a mesma senha anterior',
         required=False,
     )
 
     class Meta:
         model = User
         fields = (
-            'first_name', 'last_name', 'email',
+            'email',
             'username',
         )
 
