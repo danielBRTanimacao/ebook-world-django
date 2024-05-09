@@ -1,8 +1,11 @@
 from django.contrib import auth
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.urls import reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from home.forms import RegisterForm
+from home.forms import RegisterForm, RegisterUpdateForm
+from home.models import UsersInfos
 
 def create(request):
     form = RegisterForm()
@@ -47,8 +50,30 @@ def login_view(request):
     return render(request, 'home/login.html', context)
 
 @login_required(login_url='home:login')
-def update(request):
-    return render(request, 'home:index')
+def update(request, url_id, name_person):
+    update_user = get_object_or_404(User, pk=url_id, username=name_person)
+    user_infos = get_object_or_404(UsersInfos, owner=request.user)
+    form_action = reverse('home:update', args=(url_id,))
+
+    if request.method == "POST":
+        form = RegisterUpdateForm(request.POST, request.FILES, instance=update_user)
+        context = {
+            'form': form,
+            'form_action': form_action,
+            'site_title': 'Update - '
+        }
+
+        if form.is_valid():
+            user = form.save()
+            return redirect('home:update', url_id=user.pk)
+        
+        return render(request, 'home/create.html', context)
+    context = {
+        'form': RegisterUpdateForm(instance=update_user),
+        'form_action': form_action,
+        'site_title': 'Update - ',
+    }
+    return render(request, 'home/create.html', context)
 
 @login_required(login_url='home:login')
 def delete(request):
