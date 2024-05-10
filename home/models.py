@@ -7,3 +7,5 @@ class UsersInfos(models.Model):
     total_pages_read = models.CharField(max_length=7, default="0")
     total_books = models.CharField(max_length=7, default="0")
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
+
+
