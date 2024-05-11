@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from home.models import UsersInfos
+from home.models import UsersInfos, Post
 
 def index(request):
     return render(request, 'home/index.html')
@@ -27,9 +27,12 @@ def account(request, url_id):
         infos.save()
         user_infos = get_object_or_404(UsersInfos, owner=url_id)
 
+    post_user = Post
+
     context = {
         'home': user_single,
         'user_info': user_infos,
+        'post': post_user,
         'site_title': f"{user_single.username} - ",
     }
     return render(request, 'home/user.html', context)
