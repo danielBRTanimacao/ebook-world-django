@@ -1,7 +1,5 @@
 # Ebook Word - projeto pessoal treino de CRUD, DataBase, Front
 
-Refazendo esse texto
-
 ### 📋 Pré-requisitos
 
 O que precisa para instalar?
@@ -9,6 +7,19 @@ O que precisa para instalar?
 ```
 Python3
 Django
+```
+
+### 🔍 Api utilizada
+
+Como usar a api
+
+-   link para usar api
+    [Api book](https://developers.google.com/books/docs/v1/using?hl=pt-br)
+
+```
+Va para o cloud console
+crie um projeto
+Em apis e serviços gere um chave de segurança
 ```
 
 ### 🔧 Instalação
