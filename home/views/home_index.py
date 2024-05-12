@@ -27,12 +27,10 @@ def account(request, url_id):
         infos.save()
         user_infos = get_object_or_404(UsersInfos, owner=url_id)
 
-    post_user = Post
-
     context = {
         'home': user_single,
         'user_info': user_infos,
-        'post': post_user,
+        'post': Post(),
         'site_title': f"{user_single.username} - ",
     }
     return render(request, 'home/user.html', context)
