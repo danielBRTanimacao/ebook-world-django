@@ -11,6 +11,7 @@ class UsersInfos(models.Model):
 
 class Post(models.Model):
     simple_text = models.CharField(max_length=200)
+    likes = models.PositiveBigIntegerField(default=0)
     date_posted = models.DateField(auto_now=True)
     post_picture = models.ImageField(blank=True, upload_to='posts/%Y/%m/')
     autor_post = models.ForeignKey(
