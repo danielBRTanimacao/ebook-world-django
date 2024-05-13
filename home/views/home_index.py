@@ -27,7 +27,6 @@ def account(request, url_id):
         infos.save()
         user_infos = get_object_or_404(UsersInfos, owner=url_id)
 
-    # posts = Post.objects.all()
     posts = get_object_or_404(Post)
 
     context = {
