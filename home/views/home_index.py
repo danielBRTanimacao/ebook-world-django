@@ -36,15 +36,17 @@ def account(request, url_id):
             'home': user_single,
             'user_info': user_infos,
             'post': posts,
-            'form_post': form,
+            'form_post': form_post,
             'site_title': f"{user_single.username} - ",
         }
 
         if form.is_valid():
-            post = form.save(commit=False)
-            post.owner = request.user
-            post.save()
-            return redirect('home:account', pk=url_id)
+            contact = form.save(commit=False)
+            contact.owner = request.user
+            contact.save()
+            return redirect('contact:update', contact_id=contact.pk)
+
+        return render(request, 'home/account.html', context)
 
     form_post = FormForPost()
 
