@@ -10,13 +10,14 @@ class UsersInfos(models.Model):
 
 
 class Post(models.Model):
-    simple_text = models.CharField(max_length=200)
+    simple_text = models.CharField(max_length=200, blank=True)
     likes = models.PositiveBigIntegerField(default=0)
     date_posted = models.DateField(auto_now=True)
     post_picture = models.ImageField(blank=True, upload_to='posts/%Y/%m/')
     autor_post = models.ForeignKey(
         User,
-        on_delete=models.CASCADE,
+        on_delete=models.CASCADE, 
+        blank=True, null=True
     )
 
     def __str__(self) -> str:

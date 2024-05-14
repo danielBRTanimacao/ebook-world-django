@@ -36,7 +36,7 @@ def account(request, url_id):
             'home': user_single,
             'user_info': user_infos,
             'post': posts,
-            'form_post': form_post,
+            'form_post': form,
             'site_title': f"{user_single.username} - ",
         }
 
@@ -44,17 +44,15 @@ def account(request, url_id):
             contact = form.save(commit=False)
             contact.owner = request.user
             contact.save()
-            return redirect('contact:update', contact_id=contact.pk)
+            return redirect('home:account', url_id=contact.pk)
 
-        return render(request, 'home/account.html', context)
-
-    form_post = FormForPost()
+        return render(request, 'home/user.html', context)
 
     context = {
         'home': user_single,
         'user_info': user_infos,
         'post': posts,
-        'form_post': form_post,
+        'form_post': FormForPost(),
         'site_title': f"{user_single.username} - ",
     }
     return render(request, 'home/user.html', context)
