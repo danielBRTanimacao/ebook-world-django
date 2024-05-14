@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from forms import FormForPost
 from django.contrib.auth.models import User
 from home.models import UsersInfos, Post
 
@@ -28,11 +29,13 @@ def account(request, url_id):
         user_infos = get_object_or_404(UsersInfos, owner=url_id)
 
     posts = Post.objects.order_by('-id')
+    form_post = FormForPost()
 
     context = {
         'home': user_single,
         'user_info': user_infos,
         'post': posts,
+        'form_post': form_post,
         'site_title': f"{user_single.username} - ",
     }
     return render(request, 'home/user.html', context)

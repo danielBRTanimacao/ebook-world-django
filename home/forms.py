@@ -4,6 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import password_validation
 
+from .models import Post
+
 class RegisterForm(UserCreationForm):
     username = forms.CharField(
         widget=forms.TextInput(
@@ -174,3 +176,10 @@ class RegisterUpdateForm(forms.ModelForm):
                 self.add_error('password1', ValidationError(errors))
         
         return password1
+    
+class FormForPost(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = (
+            'post_picture', 'simple_text'
+        )
