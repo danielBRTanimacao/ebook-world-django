@@ -29,6 +29,23 @@ def account(request, url_id):
         user_infos = get_object_or_404(UsersInfos, owner=url_id)
 
     posts = Post.objects.order_by('-id')
+
+    if request.method == "POST":
+        form = FormForPost(request.POST, request.FILES)
+        context = {
+            'home': user_single,
+            'user_info': user_infos,
+            'post': posts,
+            'form_post': form,
+            'site_title': f"{user_single.username} - ",
+        }
+
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.owner = request.user
+            post.save()
+            return redirect('home:account', pk=url_id)
+
     form_post = FormForPost()
 
     context = {
