@@ -41,7 +41,7 @@
                         <ul class="dropdown-menu dropdown-menu-end">
                             {% if user.is_authenticated %}
                                 <li><a class="dropdown-item" href="{% url "home:account" user.id %}">Meu Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Configurações</a></li>
+                                <li><a class="dropdown-item" href="{% url "home:config_user" user.id %}">Configurações</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <!-- o user ainda não sai tem que ajeitar-->
                                 <li><a class="dropdown-item text-danger" href="{% url "home:logout" %}">Sair</a></li>

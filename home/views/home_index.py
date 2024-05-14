@@ -27,7 +27,7 @@ def account(request, url_id):
         infos.save()
         user_infos = get_object_or_404(UsersInfos, owner=url_id)
 
-    posts = get_object_or_404(Post)
+    posts = Post.objects.order_by('-id')
 
     context = {
         'home': user_single,

@@ -89,10 +89,26 @@
                     <aside>
                         <!-- CRiar um model aqui-->
                         <!-- Talvez usar um js pra criar um post -->
-                        <a href="#" class="btn btn-outline-dark px-5">
+                        <button class="btn btn-outline-dark px-5" data-bs-toggle="modal" data-bs-target="#postModel">
                             Criar post
-                        </a>
+                        </button>
                     </aside>
+                    <div class="modal" id="postModel" tabindex="-1" aria-labelledby="postModelLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="postModelLabel">Crie uma nova publicação</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">                
+                                    <button type="button" class="btn btn-primary">Postar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endif %}
                 <section>
                     <!-- Exemplo post -->
@@ -134,44 +150,47 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="my-4 rounded post-user">
-                        <header class="text-start">
-                            {% if user_info.picture %}
-                                <img 
-                                    class="rounded-circle" 
-                                    src="{{ user_info.picture.url }}" 
-                                    alt="img-person" 
-                                    width="50">
-                            {% else %}
-                                <i class="bi bi-person display-6 text-dark"></i>
-                            {% endif %}
-                            <span>
-                                {{ home.username }} - {{ post.date_posted }}
-                            </span>
-                        </header>
-                        <div class="border">
-                            <!-- Mudar tag -->
-                            <img class="img-fluid m-2" width="300" src="{{ post.post_picture.url}}" alt="book">
-                            <p class="text-start lead">
-                                {{ post.simple_text }}
-                            </p>
+                    {% for posts in post %}
+                    
+                        <div class="my-4 rounded post-user">
+                            <header class="text-start">
+                                {% if user_info.picture %}
+                                    <img 
+                                        class="rounded-circle" 
+                                        src="{{ user_info.picture.url }}" 
+                                        alt="img-person" 
+                                        width="50">
+                                {% else %}
+                                    <i class="bi bi-person display-6 text-dark"></i>
+                                {% endif %}
+                                <span>
+                                    {{ posts.autor_post }} - {{ posts.date_posted }}
+                                </span>
+                            </header>
+                            <div class="border">
+                                <!-- Mudar tag -->
+                                <img class="img-fluid m-2" width="300" src="{{ posts.post_picture.url}}" alt="book">
+                                <p class="text-start lead">
+                                    {{ posts.simple_text }}
+                                </p>
+                            </div>
+                            <div class="text-start ">
+                                <a href="#" class="btn text-dark">
+                                    <i class="bi bi-heart fs-2"></i>
+                                </a>
+                                <a href="#" class="btn text-dark">
+                                    <i class="bi bi-chat-left fs-2"></i>
+                                </a>
+                                <a href="#" class="btn text-dark">
+                                    <i class="bi bi-bookmark fs-2"></i>
+                                </a>
+                                <p class="lead">
+                                    {{ posts.likes }} curtidas 0 comentarios
+                                </p>
+                            </div>
                         </div>
-                        <div class="text-start ">
-                            <a href="#" class="btn text-dark">
-                                <i class="bi bi-heart fs-2"></i>
-                            </a>
-                            <a href="#" class="btn text-dark">
-                                <i class="bi bi-chat-left fs-2"></i>
-                            </a>
-                            <a href="#" class="btn text-dark">
-                                <i class="bi bi-bookmark fs-2"></i>
-                            </a>
-                            <p class="lead">
-                                {{ post.likes }} curtidas 0 comentarios
-                            </p>
-                        </div>
-                    </div>
-                    <hr>
+                        <hr>
+                    {% endfor %}
                     <!-- finish post -->
                     <div>
                         <button type="submit" class="btn">Mostrar mais...</button>
