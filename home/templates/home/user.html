@@ -101,13 +101,20 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{% url "home:account" home.id %}" method="POST">
+                                    <form action="{% url "home:account" home.id %}" method="POST" enctype="multipart/form-data">
                                         {% csrf_token %}
-                                        
+                                        {% for field in form_post %}
+                                            <div class="form-group">
+                                                <div class="mb-4">
+                                                    <label class="py-2" for="{{ field.if_for_label }}">{{ field.label }}</label>
+                                                    {{ field }}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="form-group">
+                                            <button class="btn btn-dark form-control" type="submit">Postar</button> 
+                                        </div>
                                     </form>
-                                </div>
-                                <div class="modal-footer">                
-                                    <button type="button" class="btn btn-primary">Postar</button>
                                 </div>
                             </div>
                         </div>
@@ -115,44 +122,6 @@
                 {% endif %}
                 <section>
                     <!-- Exemplo post -->
-                    <div class="my-4 rounded post-user">
-                        <header class="text-start">
-                            {% if user_info.picture %}
-                                <img 
-                                    class="rounded-circle" 
-                                    src="{{ user_info.picture.url }}" 
-                                    alt="img-person" 
-                                    width="50">
-                            {% else %}
-                                <i class="bi bi-person display-6 text-dark"></i>
-                            {% endif %}
-                            <span>
-                                {{ home.username }} - 1 d
-                            </span>
-                        </header>
-                        <div class="border">
-                            <!-- Mudar tag -->
-                            <img class="img-fluid m-2" width="400" src="https://darkside.vtexassets.com/arquivos/ids/191890/Livro-Magico-2.png?v=638206199109000000" alt="book">
-                            <p class="text-start lead">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit voluptas suscipit, rerum totam aliquam temporibus.
-                            </p>
-                        </div>
-                        <div class="text-start ">
-                            <a href="#" class="btn text-dark">
-                                <i class="bi bi-heart fs-2"></i>
-                            </a>
-                            <a href="#" class="btn text-dark">
-                                <i class="bi bi-chat-left fs-2"></i>
-                            </a>
-                            <a href="#" class="btn text-dark">
-                                <i class="bi bi-bookmark fs-2"></i>
-                            </a>
-                            <p class="lead">
-                                10 curtidas 10 comentarios
-                            </p>
-                        </div>
-                    </div>
-                    <hr>
                     {% for posts in post %}
                     
                         <div class="my-4 rounded post-user">

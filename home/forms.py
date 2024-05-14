@@ -178,6 +178,28 @@ class RegisterUpdateForm(forms.ModelForm):
         return password1
     
 class FormForPost(forms.ModelForm):
+
+    post_picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'class': 'form-control',
+                'accept': 'image/*'
+            }
+        ),
+        label="imagem para post",
+        required=True
+    )
+
+    simple_text = forms.CharField(
+        widget=forms.Textarea(
+            attrs={
+                'class': 'form-control'
+            }
+        ),
+        label="Descrição",
+        required=True
+    )
+
     class Meta:
         model = Post
         fields = (
