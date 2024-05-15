@@ -151,10 +151,6 @@ input[type="checkbox"]:checked {
     transform: translateY(0);
 }
 
-.post-user {
-    height: 85vh !important;
-}
-
 @media (max-width: 1199.98px) {
     .fade img {
         height: 450px;
