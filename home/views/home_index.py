@@ -41,10 +41,10 @@ def account(request, url_id):
         }
 
         if form.is_valid():
-            contact = form.save(commit=False)
-            contact.owner = request.user
-            contact.save()
-            return redirect('home:account', url_id=contact.pk)
+            post_form = form.save(commit=False)
+            post_form.autor_post = request.user
+            post_form.save()
+            return redirect('home:account', url_id=url_id)
 
         return render(request, 'home/user.html', context)
 

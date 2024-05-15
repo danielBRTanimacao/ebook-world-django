@@ -16,7 +16,7 @@ class Post(models.Model):
     post_picture = models.ImageField(blank=True, upload_to='posts/%Y/%m/')
     autor_post = models.ForeignKey(
         User,
-        on_delete=models.CASCADE, 
+        on_delete=models.SET_NULL, 
         blank=True, null=True
     )
 
