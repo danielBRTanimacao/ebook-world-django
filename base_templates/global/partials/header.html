@@ -24,12 +24,12 @@
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#messageModal">
                                 <i class="bi bi-envelope fs-2"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#friendsAdd">
                                 <i class="bi bi-person-add fs-2"></i>
                             </a>
                         </li>
@@ -56,3 +56,34 @@
         </div>
     </nav>
 </header>
+<div class="modal" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="messageModalLabel">Mensagens</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Ler todas</button>
+                <button type="button" class="btn btn-danger">Apagar todas</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="friendsAdd" tabindex="-1" aria-labelledby="friendsAddLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="friendsAddLabel">Amigos literatura</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
