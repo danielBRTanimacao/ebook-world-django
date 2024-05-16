@@ -1,4 +1,5 @@
 {% extends "global/base.html" %}
+{% load static %}
 
 {% block content %}
     {% include "global/partials/header.html" %}
@@ -87,8 +88,6 @@
             <div class="col-lg-6">
                 {% if user.is_authenticated %}
                     <aside>
-                        <!-- CRiar um model aqui-->
-                        <!-- Talvez usar um js pra criar um post -->
                         <button class="btn btn-outline-dark px-5" data-bs-toggle="modal" data-bs-target="#postModel">
                             Criar post
                         </button>
@@ -121,7 +120,6 @@
                     </div>
                 {% endif %}
                 <section>
-                    <!-- Exemplo post -->
                     {% for posts in post %}
                         {% if posts.autor_post == user %}
                             <div class="my-4 rounded">
@@ -142,20 +140,20 @@
                                 <div class="border">
                                     <!-- Mudar tag -->
                                     <img class="img-fluid m-2" width="250" src="{{ posts.post_picture.url}}" alt="book">
-                                    <p class="text-start lead">
+                                    <p class="text-start lead mx-2">
                                         {{ posts.simple_text }}
                                     </p>
                                 </div>
                                 <div class="text-start ">
-                                    <a href="#" class="btn text-dark">
+                                    <button class="btn text-dark" onclick="saveChangeHeart()">
                                         <i class="bi bi-heart fs-2"></i>
-                                    </a>
-                                    <a href="#" class="btn text-dark">
+                                    </button>
+                                    <button class="btn text-dark">
                                         <i class="bi bi-chat-left fs-2"></i>
-                                    </a>
-                                    <a href="#" class="btn text-dark">
+                                    </button>
+                                    <button class="btn text-dark">
                                         <i class="bi bi-bookmark fs-2"></i>
-                                    </a>
+                                    </button>
                                     <p class="lead">
                                         {{ posts.likes }} curtidas 0 comentarios
                                     </p>
@@ -180,4 +178,5 @@
         </section>
     </main>
     {% include "global/partials/footer.html" %}
+    <script src="{% static "home/js/user.js" %}"></script>
 {% endblock content %}
