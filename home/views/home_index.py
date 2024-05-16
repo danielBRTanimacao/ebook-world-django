@@ -84,3 +84,9 @@ def specific_book(request, id_book):
         'site_title': "name - "
     }
     return render(request, 'home/specific_book.html', context)
+
+def bookcase_view(request):
+    context = {
+        'site_title': 'Estante -',
+    }
+    return render(request, 'home/bookcase.html', context)
