@@ -1,5 +1,4 @@
 {% extends "global/base.html" %}
-{% load static %}
 
 {% block content %}
     {% include "global/partials/header.html" %}
@@ -145,7 +144,7 @@
                                     </p>
                                 </div>
                                 <div class="text-start ">
-                                    <button class="btn text-dark" onclick="saveChangeHeart()">
+                                    <button class="btn text-dark">
                                         <i class="bi bi-heart fs-2"></i>
                                     </button>
                                     <button class="btn text-dark">
@@ -178,5 +177,4 @@
         </section>
     </main>
     {% include "global/partials/footer.html" %}
-    <script src="{% static "home/js/user.js" %}"></script>
 {% endblock content %}
