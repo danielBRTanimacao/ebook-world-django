@@ -5,13 +5,13 @@ const apiGetEndpoint = `https://www.googleapis.com/books/v1/volumes?q=${nameBook
 fetch(apiGetEndpoint)
     .then((response) => response.json())
     .then((data) => {
-        const lanc = document.querySelector("div#lanc");
+        let lanc = document.querySelector("div#lanc");
         array = data.items.length;
-        for (let index = 0; index < array.length; index++) {
-            let book_img = data.items[index].volumeInfo.imageLinks.thumbnail;
-            lanc.innerHTML += `
-                <img src="${book_img}" alt="${book_img}">
-            `;
+        for (let index = 0; index < array; index++) {
+            try {
+                lanc.innerHTML += `<img class="img-fluid mx-1" src="${data.items[index].volumeInfo.imageLinks.thumbnail}" alt="book">`;
+            } catch (error) {
+                lanc.innerHTML += `<img class="img-fluid mx-1" src="https://source.unsplash.com/128x171/?book" alt="book">`;
+            }
         }
-        console.log(data);
     });
