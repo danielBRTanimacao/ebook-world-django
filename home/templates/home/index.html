@@ -117,23 +117,17 @@
     {% else %}
     <main class="container pt-5">
         <h1>Olá {{user}} deseja explorar alguns livros?</h1>
-        <article>
+        <article onload='fetchBook("tecnologia", "lanc")'>
             <h1 class="display-5">Lançamentos</h1>
-            <div id="lanc">
-                
-            </div>
+            <div id="lanc"></div>
         </article>
-        <article>
+        <article onload='fetchBook("pesquisa", "searcher")'>
             <h1 class="display-5">Mais pesquisados</h1>
-            <div>
-                Teste
-            </div>
+            <div id="searcher"></div>
         </article>
-        <article>
+        <article onload="fetchBook('recomendados', 'recomends')">
             <h1 class="display-5">Livros recomendados</h1>
-            <div>
-                Teste
-            </div>
+            <div id="recomends"></div>
         </article>
     </main>
 {% endif %}
@@ -142,4 +136,5 @@
 
 <script src="{% static "home/js/booksfetch.js" %}"></script>
 <script src="{% static "home/js/index.js" %}"></script>
+
 {% endblock content %}
