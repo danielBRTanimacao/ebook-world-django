@@ -85,8 +85,13 @@ def specific_book(request, id_book):
     }
     return render(request, 'home/specific_book.html', context)
 
-def bookcase_view(request):
+@login_required(login_url='home:login')
+def bookcase_view(request, url_id):
+    user = get_object_or_404(User, pk=url_id)
+    user_infos = get_object_or_404(UsersInfos, owner=url_id)
     context = {
         'site_title': 'Estante -',
+        'home': user,
+        'user_info': user_infos,
     }
     return render(request, 'home/bookcase.html', context)

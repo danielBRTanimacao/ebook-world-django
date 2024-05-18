@@ -12,7 +12,7 @@ urlpatterns = [
 
     #User
     path('user/<int:url_id>/detail/', views.account, name='account'),
-    path('user/estante/', views.bookcase_view, name='bookcase'),
+    path('user/<int:url_id>/estante/', views.bookcase_view, name='bookcase'),
     path('user/<int:url_id>/<str:name_person>/', views.user_view, name='user'),
 
     #Update
