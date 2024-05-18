@@ -16,3 +16,11 @@ function fetchBook(nameBook, nameRender) {
             }
         });
 }
+
+renderObjLanc = document.querySelector("div#lanc");
+renderObjSearcher = document.querySelector("div#searcher");
+renderObjRecomends = document.querySelector("div#recomends");
+
+renderObjLanc.addEventListener("load", fetchBook("tecnologia", "lanc"));
+renderObjLanc.addEventListener("load", fetchBook("sobre", "searcher"));
+renderObjLanc.addEventListener("load", fetchBook("recomendado", "recomends"));
