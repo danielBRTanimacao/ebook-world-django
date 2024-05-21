@@ -2,23 +2,41 @@
 
 {% block content %}
     {% include "global/partials/header.html" %}
-    <nav>
+    <nav class="container mt-4 d-flex justify-content-start">
         <div>
-            <a href="{% url "home:config_user" home.id %}">
-                {% if user_info.picture %}
-                    <img 
-                        class="rounded-circle person-icon" 
-                        src="{{ user_info.picture.url }}" 
-                        alt="img-person" 
-                        width="150">
-                {% else %}
-                    <i class="bi bi-person display-1 text-dark"></i>
-                {% endif %}
-            </a>
+            {% if user_info.picture %}
+                <img 
+                    class="rounded-circle person-icon" 
+                    src="{{ user_info.picture.url }}" 
+                    alt="img-person" 
+                    width="100">
+            {% else %}
+                <i class="bi bi-person display-1 text-dark"></i>
+            {% endif %}
         </div>
-        <span class="display-3">Olá {{home.username}} </span>
+        <span class="display-5 mt-3">Olá {{home.username}}, está e a sua estante</span>
     </nav> 
-    <main>
-        principal
+    <main class="container pt-4">
+        <div class="row">
+            <article class="col-md-2">
+                <ul>
+                    <li>
+                        render
+                    </li>
+                    <li>
+                        render
+                    </li>
+                    <li>
+                        render
+                    </li>
+                    <li>
+                        render
+                    </li>
+                </ul>
+            </article>
+            <section class="col-md-10">
+                <img class="img-fluid" width="100" src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQhZUG0-9VMWZPFFbT24XkgF2Co4jI5OWKyy57zimpFvXTgDYyBujy29XPKOlZiX0ZxwEV6L8hH7YhALr0-Tfsv2rOtJmsUOYPg1W4FBSy9&usqp=CAc" alt="book">
+            </section>
+        </div>
     </main>
 {% endblock content %}
