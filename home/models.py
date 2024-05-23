@@ -1,11 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# class BookCaseUser(models.Model):
+#     img_book
+#     name
+#     autor
+#     number_pages
+
 class UsersInfos(models.Model):
     description = models.TextField(blank=True)
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
-    total_pages_read = models.CharField(max_length=7, default="0")
-    total_books = models.CharField(max_length=7, default="0")
+    total_pages_read = models.PositiveBigIntegerField(default=0)
+    total_books = models.PositiveBigIntegerField(default=0)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
 
 
@@ -22,3 +28,5 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return self.simple_text[0:100]
+    
+# class PostComments(models.Model):
