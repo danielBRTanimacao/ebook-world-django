@@ -1,11 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# class BookCaseUser(models.Model):
-#     img_book
-#     name
-#     autor
-#     number_pages
+class BookCaseUser(models.Model):
+    owner_book = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
+    img_book = models.CharField(max_length=150, blank=True)
+    name = models.CharField(max_length=200, blank=True)
+    autor = models.CharField(max_length=200, blank=True)
+    number_pages = models.PositiveBigIntegerField(default=0)
+    # tag
 
 class UsersInfos(models.Model):
     description = models.TextField(blank=True)
@@ -29,4 +31,9 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.simple_text[0:100]
     
-# class PostComments(models.Model):
+class PostComments(models.Model):
+    owner_comment = models.ForeignKey(Post, on_delete=models.SET_NULL, blank=True, null=True)
+    text = models.TextField(blank=True)
+    likes = models.PositiveBigIntegerField(default=0)
+    fixed = models.BooleanField(default=False)
+

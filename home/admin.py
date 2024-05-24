@@ -29,3 +29,25 @@ class PostAdmin(admin.ModelAdmin):
     )
     list_per_page = 10
     list_max_show_all = 150
+
+@admin.register(models.PostComments)
+class PostCommentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'owner_comment',)
+    ordering = '-id',
+    search_fields = (
+        'id',
+        'owner_comment',
+    )
+    list_per_page = 10
+    list_max_show_all = 150
+
+@admin.register(models.BookCaseUser)
+class BookCaseUserAdmin(admin.ModelAdmin):
+    list_display = ('id', 'owner_book',)
+    ordering = '-id',
+    search_fields = (
+        'id',
+        'owner_book',
+    )
+    list_per_page = 10
+    list_max_show_all = 150
