@@ -32,7 +32,7 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(models.PostComments)
 class PostCommentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'owner_comment',)
+    list_display = ('id', 'owner_comment', 'owner_user_comment',)
     ordering = '-id',
     search_fields = (
         'id',

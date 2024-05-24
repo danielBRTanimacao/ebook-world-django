@@ -14,23 +14,35 @@
                 <i class="bi bi-person display-1 text-dark"></i>
             {% endif %}
         </div>
-        <span class="display-5 mt-3">Olá {{home.username}}, está e a sua estante</span>
+        <span class="display-5 m-3">Olá {{home.username}}, está e a sua estante</span>
     </nav> 
     <main class="container pt-4">
         <div class="row">
             <article class="col-sm-2">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        Todos
+                        <a href="#" class="text-dark link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover">
+                            <i class="bi bi-bookmarks"></i>
+                            Todos
+                        </a>
                     </li>
                     <li class="list-group-item">
-                        Lidos
+                        <a href="#" class="text-dark link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover">
+                            <i class="bi bi-bookmark-fill text-success"></i>
+                            Lidos
+                        </a>
                     </li>
                     <li class="list-group-item">
-                        Quero ler
+                        <a href="#" class="text-dark link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover">
+                            <i class="bi bi-bookmark-fill text-warning"></i>
+                            Quero ler
+                        </a>
                     </li>
                     <li class="list-group-item">
-                        Lendo
+                        <a href="#" class="text-dark link-offset-2 link-offset-3-hover link-underline-dark link-underline-opacity-0 link-underline-opacity-75-hover">
+                            <i class="bi bi-bookmark-fill text-primary"></i>
+                            Lendo
+                        </a>
                     </li>
                 </ul>
             </article>
