@@ -89,10 +89,11 @@ def specific_book(request, id_book):
 def bookcase_view(request, url_id):
     user = get_object_or_404(User, pk=url_id)
     user_infos = get_object_or_404(UsersInfos, owner=url_id)
+    bookcase = BookCaseUser.objects.order_by('-id')
     context = {
         'site_title': 'Estante -',
         'home': user,
         'user_info': user_infos,
-        'bookcases': BookCaseUser,
+        'bookcases': bookcase,
     }
     return render(request, 'home/bookcase.html', context)
