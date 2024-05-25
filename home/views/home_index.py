@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from home.forms import FormForPost
 from django.contrib.auth.models import User
-from home.models import UsersInfos, Post
+from home.models import UsersInfos, Post, BookCaseUser
 
 def index(request):
     return render(request, 'home/index.html')
@@ -93,5 +93,6 @@ def bookcase_view(request, url_id):
         'site_title': 'Estante -',
         'home': user,
         'user_info': user_infos,
+        'bookcases': BookCaseUser,
     }
     return render(request, 'home/bookcase.html', context)
