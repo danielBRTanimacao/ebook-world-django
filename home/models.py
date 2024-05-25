@@ -2,10 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class BookCaseUser(models.Model):
-    owner_book = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
-    img_book = models.CharField(max_length=150, blank=True)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
+    img = models.CharField(max_length=150, blank=True)
     name = models.CharField(max_length=200, blank=True)
-    autor = models.CharField(max_length=200, blank=True)
+    author = models.CharField(max_length=200, blank=True)
     number_pages = models.PositiveBigIntegerField(default=0)
     # tag
 
@@ -21,8 +21,8 @@ class Post(models.Model):
     simple_text = models.CharField(max_length=200, blank=True)
     likes = models.PositiveBigIntegerField(default=0)
     date_posted = models.DateField(auto_now=True)
-    post_picture = models.ImageField(blank=True, upload_to='posts/%Y/%m/')
-    autor_post = models.ForeignKey(
+    picture = models.ImageField(blank=True, upload_to='posts/%Y/%m/')
+    author = models.ForeignKey(
         User,
         on_delete=models.SET_NULL, 
         blank=True, null=True

@@ -20,12 +20,12 @@ class UsersInfosAdmin(admin.ModelAdmin):
 class PostAdmin(admin.ModelAdmin):
     list_display = (
         'id',
-        'autor_post',
+        'author',
     )
     ordering = '-id',
     search_fields = (
         'id',
-        'autor_post',
+        'author',
     )
     list_per_page = 10
     list_max_show_all = 150
@@ -43,11 +43,11 @@ class PostCommentAdmin(admin.ModelAdmin):
 
 @admin.register(models.BookCaseUser)
 class BookCaseUserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'owner_book',)
+    list_display = ('id', 'owner',)
     ordering = '-id',
     search_fields = (
         'id',
-        'owner_book',
+        'owner',
     )
     list_per_page = 10
     list_max_show_all = 150
