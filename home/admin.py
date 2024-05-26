@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from home import models
 
-@admin.register(models.UsersInfos)
+@admin.register(models.UsersInfo)
 class UsersInfosAdmin(admin.ModelAdmin):
     list_display = (
         'id',
@@ -30,7 +30,7 @@ class PostAdmin(admin.ModelAdmin):
     list_per_page = 10
     list_max_show_all = 150
 
-@admin.register(models.PostComments)
+@admin.register(models.PostComment)
 class PostCommentAdmin(admin.ModelAdmin):
     list_display = ('id', 'owner_comment', 'owner_user_comment',)
     ordering = '-id',

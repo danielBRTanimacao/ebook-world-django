@@ -2,14 +2,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from home.forms import FormForPost
 from django.contrib.auth.models import User
-from home.models import UsersInfos, Post, BookCaseUser
+from home.models import UsersInfo, Post, BookCaseUser
 
 def index(request):
     return render(request, 'home/index.html')
 
 def user_view(request, url_id, name_person):
     user_single = get_object_or_404(User, pk=url_id, username=name_person)
-    user_infos = get_object_or_404(UsersInfos, owner=url_id)
+    user_infos = get_object_or_404(UsersInfo, owner=url_id)
     context = {
         'home': user_single,
         'user_info': user_infos,
@@ -21,12 +21,12 @@ def user_view(request, url_id, name_person):
 def account(request, url_id):
     user_single = get_object_or_404(User, pk=url_id)
     try:
-        user_infos = get_object_or_404(UsersInfos, owner=url_id)
+        user_infos = get_object_or_404(UsersInfo, owner=url_id)
     except: #tratar esse erro aqui
-        infos = UsersInfos()
+        infos = UsersInfo()
         infos.owner = request.user
         infos.save()
-        user_infos = get_object_or_404(UsersInfos, owner=url_id)
+        user_infos = get_object_or_404(UsersInfo, owner=url_id)
 
     posts = Post.objects.order_by('-id')
 
@@ -60,7 +60,7 @@ def account(request, url_id):
 @login_required(login_url='home:login')
 def config_account(request, url_id):
     user_single = get_object_or_404(User, pk=url_id)
-    user_infos = get_object_or_404(UsersInfos, owner=url_id)
+    user_infos = get_object_or_404(UsersInfo, owner=url_id)
     context = {
         'home': user_single,
         'user_info': user_infos,
@@ -88,7 +88,7 @@ def specific_book(request, id_book):
 @login_required(login_url='home:login')
 def bookcase_view(request, url_id):
     user = get_object_or_404(User, pk=url_id)
-    user_infos = get_object_or_404(UsersInfos, owner=url_id)
+    user_infos = get_object_or_404(UsersInfo, owner=url_id)
     bookcase = BookCaseUser.objects.order_by('-id')
     context = {
         'site_title': 'Estante -',

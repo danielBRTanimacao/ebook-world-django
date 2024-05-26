@@ -9,7 +9,7 @@ class BookCaseUser(models.Model):
     number_pages = models.PositiveBigIntegerField(default=0)
     # tag
 
-class UsersInfos(models.Model):
+class UsersInfo(models.Model):
     description = models.TextField(blank=True)
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
     total_pages_read = models.PositiveBigIntegerField(default=0)
@@ -31,7 +31,7 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.simple_text[0:100]
     
-class PostComments(models.Model):
+class PostComment(models.Model):
     owner_user_comment = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
     owner_comment = models.ForeignKey(Post, on_delete=models.SET_NULL, blank=True, null=True)
     text = models.TextField(blank=True)
