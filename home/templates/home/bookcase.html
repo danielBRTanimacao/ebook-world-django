@@ -47,9 +47,8 @@
                 </ul>
             </article>
             <section class="col-sm-10">
-                <img class="img-fluid" width="100" src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQhZUG0-9VMWZPFFbT24XkgF2Co4jI5OWKyy57zimpFvXTgDYyBujy29XPKOlZiX0ZxwEV6L8hH7YhALr0-Tfsv2rOtJmsUOYPg1W4FBSy9&usqp=CAc" alt="book">
                 {% for book in bookcases %}
-                    <img class="img-fluid" width="100" src="{{ book.img_book }}" alt="book">
+                    <img class="img-fluid" width="100" src="{{ book.img }}" alt="book">
                 {% endfor %}
             </section>
         </div>

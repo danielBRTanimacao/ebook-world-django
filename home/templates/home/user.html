@@ -120,7 +120,7 @@
                 {% endif %}
                 <section>
                     {% for posts in post %}
-                        {% if posts.autor_post == user %}
+                        {% if posts.author == user %}
                             <div class="my-4 rounded">
                                 <header class="text-start">
                                     {% if user_info.picture %}
@@ -133,12 +133,12 @@
                                         <i class="bi bi-person display-6 text-dark"></i>
                                     {% endif %}
                                     <span>
-                                        {{ posts.autor_post }} - {{ posts.date_posted }}
+                                        {{ posts.author }} - {{ posts.date_posted }}
                                     </span>
                                 </header>
                                 <div class="border">
                                     <!-- Mudar tag -->
-                                    <img class="img-fluid m-2" width="250" src="{{ posts.post_picture.url}}" alt="book">
+                                    <img class="img-fluid m-2" width="250" src="{{ posts.picture.url}}" alt="book">
                                     <p class="text-start lead mx-2">
                                         {{ posts.simple_text }}
                                     </p>
