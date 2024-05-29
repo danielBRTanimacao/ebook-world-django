@@ -90,6 +90,9 @@ def bookcase_view(request, url_id):
     user = get_object_or_404(User, pk=url_id)
     user_infos = get_object_or_404(UsersInfo, owner=url_id)
     bookcase = BookCaseUser.objects.order_by('-id')
+    if request.method == 'POST':
+        pass
+    #test event
     context = {
         'site_title': 'Estante -',
         'home': user,

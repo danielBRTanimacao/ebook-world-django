@@ -32,7 +32,10 @@
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                       {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary">Adicionar livro</button>
+                        <form action="{% url "home:bookcase" user.id %}" method="POST">
+                          {% csrf_token %}
+                          <button type="submit" class="btn btn-primary">Adicionar livro</button>
+                        </form>
                       {% else %}
                         <a href="{% url "home:cadastro" %}" class="btn btn-primary">Crie a conta para adicionar um livro</a>
                       {% endif %}

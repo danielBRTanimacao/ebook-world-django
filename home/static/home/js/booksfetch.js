@@ -9,9 +9,9 @@ function fetchBook(nameBook, nameRender) {
             array = data.items.length;
             for (let index = 0; index < array; index++) {
                 try {
-                    render.innerHTML += `<img class="img-fluid mx-1" src="${data.items[index].volumeInfo.imageLinks.thumbnail}" alt="book">`;
+                    render.innerHTML += `<img class="img-fluid mx-1 col-sm-1" src="${data.items[index].volumeInfo.imageLinks.thumbnail}" alt="book">`;
                 } catch (error) {
-                    render.innerHTML += `<img class="img-fluid mx-1" src="https://source.unsplash.com/128x171/?book" alt="book">`;
+                    render.innerHTML += `<img class="img-fluid mx-1 col-sm-1" src="https://source.unsplash.com/128x171/?book" alt="book">`;
                 }
             }
         });
