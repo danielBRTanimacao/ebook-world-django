@@ -1,11 +1,13 @@
 {% extends "global/base.html" %}
 {% block content %}
-    <main>
+    <main class="container mt-4 p-3 border border-2 rounded">
         <h1>
             Configurações
         </h1>
-        <h1>Update</h1>
+        <hr>
+        <h2>Update</h2>
         <a href="{% url "home:update" %}">Update</a>
-
+        <h2>Sair</h2>
+        <a href="{% url "home:logout" %}">Update</a>
     </main>
 {% endblock content %}
