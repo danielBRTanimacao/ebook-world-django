@@ -151,6 +151,12 @@ input[type="checkbox"]:checked {
     transform: translateY(0);
 }
 
+.under-span {
+    text-decoration: underline solid var(--grey-variant);
+    text-underline-offset: 25px;
+    text-decoration-thickness: 1px;
+}
+
 @media (max-width: 1199.98px) {
     .fade img {
         height: 450px;
