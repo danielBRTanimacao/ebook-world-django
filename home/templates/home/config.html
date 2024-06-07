@@ -3,11 +3,18 @@
     <main class="container mt-4 p-3 border border-2 rounded">
         <h1>
             Configurações
+            <span>
+                <a href="{% url "home:index" %}">Voltar...</a>
+            </span>
         </h1>
         <hr>
         <h2>Update</h2>
         <a href="{% url "home:update" %}">Update</a>
         <h2>Sair</h2>
-        <a href="{% url "home:logout" %}">Update</a>
+        <a href="{% url "home:logout" %}">Sair da conta</a>
+        <h2>Deletar conta</h2>
+        <a href="#">Deletar</a>
+        <h2>Mudar foto de perfil</h2>
+        <a href="#">foto perfil</a>
     </main>
 {% endblock content %}

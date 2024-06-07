@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class BookCaseUser(models.Model):
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
-    img = models.CharField(max_length=150, blank=True)
+    img = models.ImageField(blank=True, upload_to='bookcase/%Y/%m/')
     name = models.CharField(max_length=200, blank=True)
     author = models.CharField(max_length=200, blank=True)
     number_pages = models.PositiveBigIntegerField(default=0)

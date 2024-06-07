@@ -46,9 +46,20 @@
                     </li>
                 </ul>
             </article>
-            <section class="col-sm-10">
+            <section class="col-sm-10 d-flex">
                 {% for book in bookcases %}
-                    <img class="img-fluid" width="100" src="{{ book.img }}" alt="book">
+                    <div class='mx-2'>
+                        <div>
+                            <img class="img-fluid" width="100" src="{{ book.img.url }}" alt="book">
+                        </div>
+                        <div>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                        </div>
+                    </div>
                 {% endfor %}
             </section>
         </div>
